@@ -4,7 +4,7 @@ part 'scan_status.model.freezed.dart';
 part 'scan_status.model.g.dart';
 
 @freezed
-class ScanStatusModel with _$ScanStatusModel {
+abstract class ScanStatusModel with _$ScanStatusModel {
   const factory ScanStatusModel({
     required bool scanning,
     required int count,

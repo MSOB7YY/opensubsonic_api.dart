@@ -6,15 +6,15 @@ part of 'artists.model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ArtistsModelImpl _$$ArtistsModelImplFromJson(Map<String, dynamic> json) =>
-    _$ArtistsModelImpl(
+_ArtistsModel _$ArtistsModelFromJson(Map<String, dynamic> json) =>
+    _ArtistsModel(
       index: (json['index'] as List<dynamic>)
           .map((e) => IndexModel.fromJson(e as Map<String, dynamic>))
           .toList(),
       ignoredArticles: json['ignoredArticles'] as String,
     );
 
-Map<String, dynamic> _$$ArtistsModelImplToJson(_$ArtistsModelImpl instance) =>
+Map<String, dynamic> _$ArtistsModelToJson(_ArtistsModel instance) =>
     <String, dynamic>{
       'index': instance.index,
       'ignoredArticles': instance.ignoredArticles,

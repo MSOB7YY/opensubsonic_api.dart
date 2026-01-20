@@ -6,7 +6,7 @@ part 'songs.model.freezed.dart';
 part 'songs.model.g.dart';
 
 @freezed
-class SongsModel with _$SongsModel {
+abstract class SongsModel with _$SongsModel {
   const factory SongsModel({
     @JsonKey(name: 'song') required List<MediaModel> songs,
   }) = _SongsModel;

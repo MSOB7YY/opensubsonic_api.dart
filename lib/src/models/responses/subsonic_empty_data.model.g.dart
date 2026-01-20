@@ -6,9 +6,8 @@ part of 'subsonic_empty_data.model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SubsonicNoDataImpl _$$SubsonicNoDataImplFromJson(Map<String, dynamic> json) =>
-    _$SubsonicNoDataImpl();
+_SubsonicNoData _$SubsonicNoDataFromJson(Map<String, dynamic> json) =>
+    _SubsonicNoData();
 
-Map<String, dynamic> _$$SubsonicNoDataImplToJson(
-        _$SubsonicNoDataImpl instance) =>
+Map<String, dynamic> _$SubsonicNoDataToJson(_SubsonicNoData instance) =>
     <String, dynamic>{};

@@ -4,7 +4,7 @@ part 'music_folder.model.freezed.dart';
 part 'music_folder.model.g.dart';
 
 @freezed
-class MusicFolderModel with _$MusicFolderModel {
+abstract class MusicFolderModel with _$MusicFolderModel {
   factory MusicFolderModel({
     required int id,
     String? name,

@@ -6,8 +6,8 @@ part of 'album_info.model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$AlbumInfoModelImpl _$$AlbumInfoModelImplFromJson(Map<String, dynamic> json) =>
-    _$AlbumInfoModelImpl(
+_AlbumInfoModel _$AlbumInfoModelFromJson(Map<String, dynamic> json) =>
+    _AlbumInfoModel(
       biography: json['biography'] as String?,
       musicBrainzId: json['musicBrainzId'] as String?,
       lastFmUrl: json['lastFmUrl'] as String?,
@@ -16,8 +16,7 @@ _$AlbumInfoModelImpl _$$AlbumInfoModelImplFromJson(Map<String, dynamic> json) =>
       largeImageUrl: json['largeImageUrl'] as String?,
     );
 
-Map<String, dynamic> _$$AlbumInfoModelImplToJson(
-        _$AlbumInfoModelImpl instance) =>
+Map<String, dynamic> _$AlbumInfoModelToJson(_AlbumInfoModel instance) =>
     <String, dynamic>{
       'biography': instance.biography,
       'musicBrainzId': instance.musicBrainzId,

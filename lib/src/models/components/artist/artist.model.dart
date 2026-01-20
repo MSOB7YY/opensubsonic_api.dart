@@ -8,7 +8,7 @@ part 'artist.model.freezed.dart';
 part 'artist.model.g.dart';
 
 @freezed
-class ArtistModel with _$ArtistModel {
+abstract class ArtistModel with _$ArtistModel {
   const factory ArtistModel({
     required String id,
     required String name,

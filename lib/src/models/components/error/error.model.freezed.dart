@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,175 +9,272 @@ part of 'error.model.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-SubsonicErrorModel _$SubsonicErrorModelFromJson(Map<String, dynamic> json) {
-  return _SubsonicErrorModel.fromJson(json);
-}
 
 /// @nodoc
 mixin _$SubsonicErrorModel {
-  int get code => throw _privateConstructorUsedError;
-  String get message => throw _privateConstructorUsedError;
+
+ int get code; String get message;
+/// Create a copy of SubsonicErrorModel
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$SubsonicErrorModelCopyWith<SubsonicErrorModel> get copyWith => _$SubsonicErrorModelCopyWithImpl<SubsonicErrorModel>(this as SubsonicErrorModel, _$identity);
 
   /// Serializes this SubsonicErrorModel to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of SubsonicErrorModel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $SubsonicErrorModelCopyWith<SubsonicErrorModel> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SubsonicErrorModel&&(identical(other.code, code) || other.code == code)&&(identical(other.message, message) || other.message == message));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,code,message);
+
+@override
+String toString() {
+  return 'SubsonicErrorModel(code: $code, message: $message)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $SubsonicErrorModelCopyWith<$Res> {
-  factory $SubsonicErrorModelCopyWith(
-          SubsonicErrorModel value, $Res Function(SubsonicErrorModel) then) =
-      _$SubsonicErrorModelCopyWithImpl<$Res, SubsonicErrorModel>;
-  @useResult
-  $Res call({int code, String message});
-}
+abstract mixin class $SubsonicErrorModelCopyWith<$Res>  {
+  factory $SubsonicErrorModelCopyWith(SubsonicErrorModel value, $Res Function(SubsonicErrorModel) _then) = _$SubsonicErrorModelCopyWithImpl;
+@useResult
+$Res call({
+ int code, String message
+});
 
+
+
+
+}
 /// @nodoc
-class _$SubsonicErrorModelCopyWithImpl<$Res, $Val extends SubsonicErrorModel>
+class _$SubsonicErrorModelCopyWithImpl<$Res>
     implements $SubsonicErrorModelCopyWith<$Res> {
-  _$SubsonicErrorModelCopyWithImpl(this._value, this._then);
+  _$SubsonicErrorModelCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final SubsonicErrorModel _self;
+  final $Res Function(SubsonicErrorModel) _then;
 
-  /// Create a copy of SubsonicErrorModel
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? code = null,
-    Object? message = null,
-  }) {
-    return _then(_value.copyWith(
-      code: null == code
-          ? _value.code
-          : code // ignore: cast_nullable_to_non_nullable
-              as int,
-      message: null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of SubsonicErrorModel
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? code = null,Object? message = null,}) {
+  return _then(_self.copyWith(
+code: null == code ? _self.code : code // ignore: cast_nullable_to_non_nullable
+as int,message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$SubsonicErrorModelImplCopyWith<$Res>
-    implements $SubsonicErrorModelCopyWith<$Res> {
-  factory _$$SubsonicErrorModelImplCopyWith(_$SubsonicErrorModelImpl value,
-          $Res Function(_$SubsonicErrorModelImpl) then) =
-      __$$SubsonicErrorModelImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({int code, String message});
 }
 
-/// @nodoc
-class __$$SubsonicErrorModelImplCopyWithImpl<$Res>
-    extends _$SubsonicErrorModelCopyWithImpl<$Res, _$SubsonicErrorModelImpl>
-    implements _$$SubsonicErrorModelImplCopyWith<$Res> {
-  __$$SubsonicErrorModelImplCopyWithImpl(_$SubsonicErrorModelImpl _value,
-      $Res Function(_$SubsonicErrorModelImpl) _then)
-      : super(_value, _then);
 
-  /// Create a copy of SubsonicErrorModel
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? code = null,
-    Object? message = null,
-  }) {
-    return _then(_$SubsonicErrorModelImpl(
-      code: null == code
-          ? _value.code
-          : code // ignore: cast_nullable_to_non_nullable
-              as int,
-      message: null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
+/// Adds pattern-matching-related methods to [SubsonicErrorModel].
+extension SubsonicErrorModelPatterns on SubsonicErrorModel {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _SubsonicErrorModel value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _SubsonicErrorModel() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _SubsonicErrorModel value)  $default,){
+final _that = this;
+switch (_that) {
+case _SubsonicErrorModel():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _SubsonicErrorModel value)?  $default,){
+final _that = this;
+switch (_that) {
+case _SubsonicErrorModel() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int code,  String message)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _SubsonicErrorModel() when $default != null:
+return $default(_that.code,_that.message);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int code,  String message)  $default,) {final _that = this;
+switch (_that) {
+case _SubsonicErrorModel():
+return $default(_that.code,_that.message);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int code,  String message)?  $default,) {final _that = this;
+switch (_that) {
+case _SubsonicErrorModel() when $default != null:
+return $default(_that.code,_that.message);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$SubsonicErrorModelImpl implements _SubsonicErrorModel {
-  const _$SubsonicErrorModelImpl({required this.code, required this.message});
 
-  factory _$SubsonicErrorModelImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SubsonicErrorModelImplFromJson(json);
+class _SubsonicErrorModel implements SubsonicErrorModel {
+  const _SubsonicErrorModel({required this.code, required this.message});
+  factory _SubsonicErrorModel.fromJson(Map<String, dynamic> json) => _$SubsonicErrorModelFromJson(json);
 
-  @override
-  final int code;
-  @override
-  final String message;
+@override final  int code;
+@override final  String message;
 
-  @override
-  String toString() {
-    return 'SubsonicErrorModel(code: $code, message: $message)';
-  }
+/// Create a copy of SubsonicErrorModel
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$SubsonicErrorModelCopyWith<_SubsonicErrorModel> get copyWith => __$SubsonicErrorModelCopyWithImpl<_SubsonicErrorModel>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$SubsonicErrorModelImpl &&
-            (identical(other.code, code) || other.code == code) &&
-            (identical(other.message, message) || other.message == message));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, code, message);
-
-  /// Create a copy of SubsonicErrorModel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$SubsonicErrorModelImplCopyWith<_$SubsonicErrorModelImpl> get copyWith =>
-      __$$SubsonicErrorModelImplCopyWithImpl<_$SubsonicErrorModelImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SubsonicErrorModelImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$SubsonicErrorModelToJson(this, );
 }
 
-abstract class _SubsonicErrorModel implements SubsonicErrorModel {
-  const factory _SubsonicErrorModel(
-      {required final int code,
-      required final String message}) = _$SubsonicErrorModelImpl;
-
-  factory _SubsonicErrorModel.fromJson(Map<String, dynamic> json) =
-      _$SubsonicErrorModelImpl.fromJson;
-
-  @override
-  int get code;
-  @override
-  String get message;
-
-  /// Create a copy of SubsonicErrorModel
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$SubsonicErrorModelImplCopyWith<_$SubsonicErrorModelImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SubsonicErrorModel&&(identical(other.code, code) || other.code == code)&&(identical(other.message, message) || other.message == message));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,code,message);
+
+@override
+String toString() {
+  return 'SubsonicErrorModel(code: $code, message: $message)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$SubsonicErrorModelCopyWith<$Res> implements $SubsonicErrorModelCopyWith<$Res> {
+  factory _$SubsonicErrorModelCopyWith(_SubsonicErrorModel value, $Res Function(_SubsonicErrorModel) _then) = __$SubsonicErrorModelCopyWithImpl;
+@override @useResult
+$Res call({
+ int code, String message
+});
+
+
+
+
+}
+/// @nodoc
+class __$SubsonicErrorModelCopyWithImpl<$Res>
+    implements _$SubsonicErrorModelCopyWith<$Res> {
+  __$SubsonicErrorModelCopyWithImpl(this._self, this._then);
+
+  final _SubsonicErrorModel _self;
+  final $Res Function(_SubsonicErrorModel) _then;
+
+/// Create a copy of SubsonicErrorModel
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? code = null,Object? message = null,}) {
+  return _then(_SubsonicErrorModel(
+code: null == code ? _self.code : code // ignore: cast_nullable_to_non_nullable
+as int,message: null == message ? _self.message : message // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

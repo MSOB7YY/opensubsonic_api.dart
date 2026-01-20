@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,206 +9,279 @@ part of 'genre.model.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-GenreModel _$GenreModelFromJson(Map<String, dynamic> json) {
-  return _GenreModel.fromJson(json);
-}
 
 /// @nodoc
 mixin _$GenreModel {
-  String get value => throw _privateConstructorUsedError;
 
-  /// Added in 1.10.2
-  int get songCount => throw _privateConstructorUsedError;
-
-  /// Added in 1.10.2
-  int get albumCount => throw _privateConstructorUsedError;
+ String get value;/// Added in 1.10.2
+ int get songCount;/// Added in 1.10.2
+ int get albumCount;
+/// Create a copy of GenreModel
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$GenreModelCopyWith<GenreModel> get copyWith => _$GenreModelCopyWithImpl<GenreModel>(this as GenreModel, _$identity);
 
   /// Serializes this GenreModel to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of GenreModel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $GenreModelCopyWith<GenreModel> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is GenreModel&&(identical(other.value, value) || other.value == value)&&(identical(other.songCount, songCount) || other.songCount == songCount)&&(identical(other.albumCount, albumCount) || other.albumCount == albumCount));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,value,songCount,albumCount);
+
+@override
+String toString() {
+  return 'GenreModel(value: $value, songCount: $songCount, albumCount: $albumCount)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $GenreModelCopyWith<$Res> {
-  factory $GenreModelCopyWith(
-          GenreModel value, $Res Function(GenreModel) then) =
-      _$GenreModelCopyWithImpl<$Res, GenreModel>;
-  @useResult
-  $Res call({String value, int songCount, int albumCount});
-}
+abstract mixin class $GenreModelCopyWith<$Res>  {
+  factory $GenreModelCopyWith(GenreModel value, $Res Function(GenreModel) _then) = _$GenreModelCopyWithImpl;
+@useResult
+$Res call({
+ String value, int songCount, int albumCount
+});
 
+
+
+
+}
 /// @nodoc
-class _$GenreModelCopyWithImpl<$Res, $Val extends GenreModel>
+class _$GenreModelCopyWithImpl<$Res>
     implements $GenreModelCopyWith<$Res> {
-  _$GenreModelCopyWithImpl(this._value, this._then);
+  _$GenreModelCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final GenreModel _self;
+  final $Res Function(GenreModel) _then;
 
-  /// Create a copy of GenreModel
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? value = null,
-    Object? songCount = null,
-    Object? albumCount = null,
-  }) {
-    return _then(_value.copyWith(
-      value: null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
-      songCount: null == songCount
-          ? _value.songCount
-          : songCount // ignore: cast_nullable_to_non_nullable
-              as int,
-      albumCount: null == albumCount
-          ? _value.albumCount
-          : albumCount // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
-  }
+/// Create a copy of GenreModel
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? value = null,Object? songCount = null,Object? albumCount = null,}) {
+  return _then(_self.copyWith(
+value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as String,songCount: null == songCount ? _self.songCount : songCount // ignore: cast_nullable_to_non_nullable
+as int,albumCount: null == albumCount ? _self.albumCount : albumCount // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
 }
 
-/// @nodoc
-abstract class _$$GenreModelImplCopyWith<$Res>
-    implements $GenreModelCopyWith<$Res> {
-  factory _$$GenreModelImplCopyWith(
-          _$GenreModelImpl value, $Res Function(_$GenreModelImpl) then) =
-      __$$GenreModelImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String value, int songCount, int albumCount});
 }
 
-/// @nodoc
-class __$$GenreModelImplCopyWithImpl<$Res>
-    extends _$GenreModelCopyWithImpl<$Res, _$GenreModelImpl>
-    implements _$$GenreModelImplCopyWith<$Res> {
-  __$$GenreModelImplCopyWithImpl(
-      _$GenreModelImpl _value, $Res Function(_$GenreModelImpl) _then)
-      : super(_value, _then);
 
-  /// Create a copy of GenreModel
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? value = null,
-    Object? songCount = null,
-    Object? albumCount = null,
-  }) {
-    return _then(_$GenreModelImpl(
-      value: null == value
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
-      songCount: null == songCount
-          ? _value.songCount
-          : songCount // ignore: cast_nullable_to_non_nullable
-              as int,
-      albumCount: null == albumCount
-          ? _value.albumCount
-          : albumCount // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
+/// Adds pattern-matching-related methods to [GenreModel].
+extension GenreModelPatterns on GenreModel {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _GenreModel value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _GenreModel() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _GenreModel value)  $default,){
+final _that = this;
+switch (_that) {
+case _GenreModel():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _GenreModel value)?  $default,){
+final _that = this;
+switch (_that) {
+case _GenreModel() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String value,  int songCount,  int albumCount)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _GenreModel() when $default != null:
+return $default(_that.value,_that.songCount,_that.albumCount);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String value,  int songCount,  int albumCount)  $default,) {final _that = this;
+switch (_that) {
+case _GenreModel():
+return $default(_that.value,_that.songCount,_that.albumCount);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String value,  int songCount,  int albumCount)?  $default,) {final _that = this;
+switch (_that) {
+case _GenreModel() when $default != null:
+return $default(_that.value,_that.songCount,_that.albumCount);case _:
+  return null;
+
+}
+}
+
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$GenreModelImpl implements _GenreModel {
-  const _$GenreModelImpl(
-      {required this.value, required this.songCount, required this.albumCount});
 
-  factory _$GenreModelImpl.fromJson(Map<String, dynamic> json) =>
-      _$$GenreModelImplFromJson(json);
+class _GenreModel implements GenreModel {
+  const _GenreModel({required this.value, required this.songCount, required this.albumCount});
+  factory _GenreModel.fromJson(Map<String, dynamic> json) => _$GenreModelFromJson(json);
 
-  @override
-  final String value;
+@override final  String value;
+/// Added in 1.10.2
+@override final  int songCount;
+/// Added in 1.10.2
+@override final  int albumCount;
 
-  /// Added in 1.10.2
-  @override
-  final int songCount;
+/// Create a copy of GenreModel
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$GenreModelCopyWith<_GenreModel> get copyWith => __$GenreModelCopyWithImpl<_GenreModel>(this, _$identity);
 
-  /// Added in 1.10.2
-  @override
-  final int albumCount;
-
-  @override
-  String toString() {
-    return 'GenreModel(value: $value, songCount: $songCount, albumCount: $albumCount)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$GenreModelImpl &&
-            (identical(other.value, value) || other.value == value) &&
-            (identical(other.songCount, songCount) ||
-                other.songCount == songCount) &&
-            (identical(other.albumCount, albumCount) ||
-                other.albumCount == albumCount));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, value, songCount, albumCount);
-
-  /// Create a copy of GenreModel
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$GenreModelImplCopyWith<_$GenreModelImpl> get copyWith =>
-      __$$GenreModelImplCopyWithImpl<_$GenreModelImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$GenreModelImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$GenreModelToJson(this, );
 }
 
-abstract class _GenreModel implements GenreModel {
-  const factory _GenreModel(
-      {required final String value,
-      required final int songCount,
-      required final int albumCount}) = _$GenreModelImpl;
-
-  factory _GenreModel.fromJson(Map<String, dynamic> json) =
-      _$GenreModelImpl.fromJson;
-
-  @override
-  String get value;
-
-  /// Added in 1.10.2
-  @override
-  int get songCount;
-
-  /// Added in 1.10.2
-  @override
-  int get albumCount;
-
-  /// Create a copy of GenreModel
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GenreModelImplCopyWith<_$GenreModelImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GenreModel&&(identical(other.value, value) || other.value == value)&&(identical(other.songCount, songCount) || other.songCount == songCount)&&(identical(other.albumCount, albumCount) || other.albumCount == albumCount));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,value,songCount,albumCount);
+
+@override
+String toString() {
+  return 'GenreModel(value: $value, songCount: $songCount, albumCount: $albumCount)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$GenreModelCopyWith<$Res> implements $GenreModelCopyWith<$Res> {
+  factory _$GenreModelCopyWith(_GenreModel value, $Res Function(_GenreModel) _then) = __$GenreModelCopyWithImpl;
+@override @useResult
+$Res call({
+ String value, int songCount, int albumCount
+});
+
+
+
+
+}
+/// @nodoc
+class __$GenreModelCopyWithImpl<$Res>
+    implements _$GenreModelCopyWith<$Res> {
+  __$GenreModelCopyWithImpl(this._self, this._then);
+
+  final _GenreModel _self;
+  final $Res Function(_GenreModel) _then;
+
+/// Create a copy of GenreModel
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? value = null,Object? songCount = null,Object? albumCount = null,}) {
+  return _then(_GenreModel(
+value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as String,songCount: null == songCount ? _self.songCount : songCount // ignore: cast_nullable_to_non_nullable
+as int,albumCount: null == albumCount ? _self.albumCount : albumCount // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
+}
+
+
+}
+
+// dart format on

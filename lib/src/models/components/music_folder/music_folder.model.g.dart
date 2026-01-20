@@ -6,16 +6,11 @@ part of 'music_folder.model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$MusicFolderModelImpl _$$MusicFolderModelImplFromJson(
-        Map<String, dynamic> json) =>
-    _$MusicFolderModelImpl(
+_MusicFolderModel _$MusicFolderModelFromJson(Map<String, dynamic> json) =>
+    _MusicFolderModel(
       id: (json['id'] as num).toInt(),
       name: json['name'] as String?,
     );
 
-Map<String, dynamic> _$$MusicFolderModelImplToJson(
-        _$MusicFolderModelImpl instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'name': instance.name,
-    };
+Map<String, dynamic> _$MusicFolderModelToJson(_MusicFolderModel instance) =>
+    <String, dynamic>{'id': instance.id, 'name': instance.name};

@@ -6,16 +6,14 @@ part of 'license.model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LicenseImpl _$$LicenseImplFromJson(Map<String, dynamic> json) =>
-    _$LicenseImpl(
-      valid: json['valid'] as bool,
-      email: json['email'] as String?,
-      licenseExpires: json['licenseExpires'] as String?,
-    );
+_License _$LicenseFromJson(Map<String, dynamic> json) => _License(
+  valid: json['valid'] as bool,
+  email: json['email'] as String?,
+  licenseExpires: json['licenseExpires'] as String?,
+);
 
-Map<String, dynamic> _$$LicenseImplToJson(_$LicenseImpl instance) =>
-    <String, dynamic>{
-      'valid': instance.valid,
-      'email': instance.email,
-      'licenseExpires': instance.licenseExpires,
-    };
+Map<String, dynamic> _$LicenseToJson(_License instance) => <String, dynamic>{
+  'valid': instance.valid,
+  'email': instance.email,
+  'licenseExpires': instance.licenseExpires,
+};

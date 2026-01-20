@@ -6,9 +6,8 @@ part of 'scan_status.model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ScanStatusModelImpl _$$ScanStatusModelImplFromJson(
-        Map<String, dynamic> json) =>
-    _$ScanStatusModelImpl(
+_ScanStatusModel _$ScanStatusModelFromJson(Map<String, dynamic> json) =>
+    _ScanStatusModel(
       scanning: json['scanning'] as bool,
       count: (json['count'] as num).toInt(),
       folderCount: (json['folderCount'] as num?)?.toInt(),
@@ -17,8 +16,7 @@ _$ScanStatusModelImpl _$$ScanStatusModelImplFromJson(
           : DateTime.parse(json['lastScan'] as String),
     );
 
-Map<String, dynamic> _$$ScanStatusModelImplToJson(
-        _$ScanStatusModelImpl instance) =>
+Map<String, dynamic> _$ScanStatusModelToJson(_ScanStatusModel instance) =>
     <String, dynamic>{
       'scanning': instance.scanning,
       'count': instance.count,

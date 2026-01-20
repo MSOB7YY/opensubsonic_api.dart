@@ -6,9 +6,10 @@ part of 'playlist.model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$PlaylistModelImpl _$$PlaylistModelImplFromJson(Map<String, dynamic> json) =>
-    _$PlaylistModelImpl(
-      allowedUser: (json['allowedUser'] as List<dynamic>?)
+_PlaylistModel _$PlaylistModelFromJson(Map<String, dynamic> json) =>
+    _PlaylistModel(
+      allowedUser:
+          (json['allowedUser'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
           const [],
@@ -18,20 +19,26 @@ _$PlaylistModelImpl _$$PlaylistModelImplFromJson(Map<String, dynamic> json) =>
       owner: json['owner'] as String?,
       public: json['public'] as bool?,
       songCount: (json['songCount'] as num).toInt(),
-      duration:
-          const DurationConvertor().fromJson((json['duration'] as num).toInt()),
+      duration: const DurationConvertor().fromJson(
+        (json['duration'] as num).toInt(),
+      ),
       created: _$JsonConverterFromJson<String, DateTime>(
-          json['created'], const DateTimeConvertor().fromJson),
+        json['created'],
+        const DateTimeConvertor().fromJson,
+      ),
       changed: _$JsonConverterFromJson<String, DateTime>(
-          json['changed'], const DateTimeConvertor().fromJson),
+        json['changed'],
+        const DateTimeConvertor().fromJson,
+      ),
       coverArt: json['coverArt'] as String?,
-      songs: (json['entry'] as List<dynamic>?)
+      songs:
+          (json['entry'] as List<dynamic>?)
               ?.map((e) => MediaModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
     );
 
-Map<String, dynamic> _$$PlaylistModelImplToJson(_$PlaylistModelImpl instance) =>
+Map<String, dynamic> _$PlaylistModelToJson(_PlaylistModel instance) =>
     <String, dynamic>{
       'allowedUser': instance.allowedUser,
       'id': instance.id,
@@ -42,9 +49,13 @@ Map<String, dynamic> _$$PlaylistModelImplToJson(_$PlaylistModelImpl instance) =>
       'songCount': instance.songCount,
       'duration': const DurationConvertor().toJson(instance.duration),
       'created': _$JsonConverterToJson<String, DateTime>(
-          instance.created, const DateTimeConvertor().toJson),
+        instance.created,
+        const DateTimeConvertor().toJson,
+      ),
       'changed': _$JsonConverterToJson<String, DateTime>(
-          instance.changed, const DateTimeConvertor().toJson),
+        instance.changed,
+        const DateTimeConvertor().toJson,
+      ),
       'coverArt': instance.coverArt,
       'entry': instance.songs,
     };
@@ -52,11 +63,9 @@ Map<String, dynamic> _$$PlaylistModelImplToJson(_$PlaylistModelImpl instance) =>
 Value? _$JsonConverterFromJson<Json, Value>(
   Object? json,
   Value? Function(Json json) fromJson,
-) =>
-    json == null ? null : fromJson(json as Json);
+) => json == null ? null : fromJson(json as Json);
 
 Json? _$JsonConverterToJson<Json, Value>(
   Value? value,
   Json? Function(Value value) toJson,
-) =>
-    value == null ? null : toJson(value);
+) => value == null ? null : toJson(value);

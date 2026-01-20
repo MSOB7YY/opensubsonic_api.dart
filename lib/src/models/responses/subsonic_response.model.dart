@@ -45,7 +45,7 @@ class SubsonicResponse<T> {
 }
 
 @Freezed(genericArgumentFactories: true, fromJson: true)
-class SubsonicResponseData<T> with _$SubsonicResponseData<T> {
+abstract class SubsonicResponseData<T> with _$SubsonicResponseData<T> {
   const factory SubsonicResponseData({
     required ResponseStatus status,
 

@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,95 +9,204 @@ part of 'subsonic_empty_data.model.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-SubsonicNoData _$SubsonicNoDataFromJson(Map<String, dynamic> json) {
-  return _SubsonicNoData.fromJson(json);
-}
 
 /// @nodoc
 mixin _$SubsonicNoData {
+
+
+
   /// Serializes this SubsonicNoData to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SubsonicNoData);
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'SubsonicNoData()';
+}
+
+
 }
 
 /// @nodoc
-abstract class $SubsonicNoDataCopyWith<$Res> {
-  factory $SubsonicNoDataCopyWith(
-          SubsonicNoData value, $Res Function(SubsonicNoData) then) =
-      _$SubsonicNoDataCopyWithImpl<$Res, SubsonicNoData>;
+class $SubsonicNoDataCopyWith<$Res>  {
+$SubsonicNoDataCopyWith(SubsonicNoData _, $Res Function(SubsonicNoData) __);
 }
 
-/// @nodoc
-class _$SubsonicNoDataCopyWithImpl<$Res, $Val extends SubsonicNoData>
-    implements $SubsonicNoDataCopyWith<$Res> {
-  _$SubsonicNoDataCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+/// Adds pattern-matching-related methods to [SubsonicNoData].
+extension SubsonicNoDataPatterns on SubsonicNoData {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
 
-  /// Create a copy of SubsonicNoData
-  /// with the given fields replaced by the non-null parameter values.
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _SubsonicNoData value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _SubsonicNoData() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _SubsonicNoData value)  $default,){
+final _that = this;
+switch (_that) {
+case _SubsonicNoData():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _SubsonicNoData value)?  $default,){
+final _that = this;
+switch (_that) {
+case _SubsonicNoData() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function()?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _SubsonicNoData() when $default != null:
+return $default();case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function()  $default,) {final _that = this;
+switch (_that) {
+case _SubsonicNoData():
+return $default();case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function()?  $default,) {final _that = this;
+switch (_that) {
+case _SubsonicNoData() when $default != null:
+return $default();case _:
+  return null;
+
+}
 }
 
-/// @nodoc
-abstract class _$$SubsonicNoDataImplCopyWith<$Res> {
-  factory _$$SubsonicNoDataImplCopyWith(_$SubsonicNoDataImpl value,
-          $Res Function(_$SubsonicNoDataImpl) then) =
-      __$$SubsonicNoDataImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$SubsonicNoDataImplCopyWithImpl<$Res>
-    extends _$SubsonicNoDataCopyWithImpl<$Res, _$SubsonicNoDataImpl>
-    implements _$$SubsonicNoDataImplCopyWith<$Res> {
-  __$$SubsonicNoDataImplCopyWithImpl(
-      _$SubsonicNoDataImpl _value, $Res Function(_$SubsonicNoDataImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of SubsonicNoData
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$SubsonicNoDataImpl implements _SubsonicNoData {
-  const _$SubsonicNoDataImpl();
 
-  factory _$SubsonicNoDataImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SubsonicNoDataImplFromJson(json);
+class _SubsonicNoData implements SubsonicNoData {
+  const _SubsonicNoData();
+  factory _SubsonicNoData.fromJson(Map<String, dynamic> json) => _$SubsonicNoDataFromJson(json);
 
-  @override
-  String toString() {
-    return 'SubsonicNoData()';
-  }
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$SubsonicNoDataImpl);
-  }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => runtimeType.hashCode;
 
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SubsonicNoDataImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$SubsonicNoDataToJson(this, );
 }
 
-abstract class _SubsonicNoData implements SubsonicNoData {
-  const factory _SubsonicNoData() = _$SubsonicNoDataImpl;
-
-  factory _SubsonicNoData.fromJson(Map<String, dynamic> json) =
-      _$SubsonicNoDataImpl.fromJson;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SubsonicNoData);
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'SubsonicNoData()';
+}
+
+
+}
+
+
+
+
+// dart format on

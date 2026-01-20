@@ -8,7 +8,7 @@ part 'starred.model.freezed.dart';
 part 'starred.model.g.dart';
 
 @freezed
-class StarredModel with _$StarredModel {
+abstract class StarredModel with _$StarredModel {
   const factory StarredModel({
     @JsonKey(name: 'artist') @Default([]) List<ArtistModel> artists,
     @JsonKey(name: 'album') @Default([]) List<AlbumModel> albums,

@@ -6,14 +6,13 @@ part of 'genre.model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GenreModelImpl _$$GenreModelImplFromJson(Map<String, dynamic> json) =>
-    _$GenreModelImpl(
-      value: json['value'] as String,
-      songCount: (json['songCount'] as num).toInt(),
-      albumCount: (json['albumCount'] as num).toInt(),
-    );
+_GenreModel _$GenreModelFromJson(Map<String, dynamic> json) => _GenreModel(
+  value: json['value'] as String,
+  songCount: (json['songCount'] as num).toInt(),
+  albumCount: (json['albumCount'] as num).toInt(),
+);
 
-Map<String, dynamic> _$$GenreModelImplToJson(_$GenreModelImpl instance) =>
+Map<String, dynamic> _$GenreModelToJson(_GenreModel instance) =>
     <String, dynamic>{
       'value': instance.value,
       'songCount': instance.songCount,

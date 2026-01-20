@@ -6,7 +6,7 @@ part 'genres.model.freezed.dart';
 part 'genres.model.g.dart';
 
 @freezed
-class GenresModel with _$GenresModel {
+abstract class GenresModel with _$GenresModel {
   const factory GenresModel({
     required List<GenreModel> genre,
   }) = _GenresModel;

@@ -4,7 +4,7 @@ part 'lyrics.model.freezed.dart';
 part 'lyrics.model.g.dart';
 
 @freezed
-class StructuredLyricsModel with _$StructuredLyricsModel {
+abstract class StructuredLyricsModel with _$StructuredLyricsModel {
   const factory StructuredLyricsModel({
     @JsonKey(name: 'structuredLyrics') required List<LyricsModel> lyrics,
   }) = _StructuredLyricsModel;
@@ -14,7 +14,7 @@ class StructuredLyricsModel with _$StructuredLyricsModel {
 }
 
 @freezed
-class LyricsModel with _$LyricsModel {
+abstract class LyricsModel with _$LyricsModel {
   const factory LyricsModel({
     required String displayArtist,
     required String displayTitle,
@@ -27,7 +27,7 @@ class LyricsModel with _$LyricsModel {
 }
 
 @freezed
-class LyricsLineModel with _$LyricsLineModel {
+abstract class LyricsLineModel with _$LyricsLineModel {
   const factory LyricsLineModel({
     required int start,
     required String value,

@@ -4,7 +4,7 @@ part 'error.model.freezed.dart';
 part 'error.model.g.dart';
 
 @freezed
-class SubsonicErrorModel with _$SubsonicErrorModel {
+abstract class SubsonicErrorModel with _$SubsonicErrorModel {
   const factory SubsonicErrorModel({
     required int code,
     required String message,

@@ -4,7 +4,7 @@ part 'album_info.model.freezed.dart';
 part 'album_info.model.g.dart';
 
 @freezed
-class AlbumInfoModel with _$AlbumInfoModel {
+abstract class AlbumInfoModel with _$AlbumInfoModel {
   const factory AlbumInfoModel({
     String? biography,
     String? musicBrainzId,

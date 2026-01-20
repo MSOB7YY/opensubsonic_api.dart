@@ -11,25 +11,20 @@ class SubsonicApi {
   SubsonicApi({
     required this.auth,
     required this.baseUrl,
+    required Dio Function(String baseUrl, String version, String clientId)
+        onCreateDio,
     this.version = '1.16.1',
     this.clientId = 'rankki-subsonic-api',
     RequestLoggingMixin? logger,
   }) {
-    dio = Dio(
-      BaseOptions(
-        baseUrl: baseUrl,
-        queryParameters: {
-          'v': version,
-          'c': clientId,
-        },
-      ),
-    )..interceptors.addAll(
-        [
-          AuthInterceptor(auth),
-          JsonInterceptor(),
-          if (logger != null) LoggingInterceptor(logger),
-        ],
-      );
+    dio = onCreateDio.call(baseUrl, version, clientId);
+    dio.interceptors.addAll(
+      [
+        AuthInterceptor(auth),
+        JsonInterceptor(),
+        if (logger != null) LoggingInterceptor(logger),
+      ],
+    );
     api = SubsonicApiClient(dio, baseUrl: baseUrl);
   }
 

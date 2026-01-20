@@ -28,10 +28,7 @@ part 'api.g.dart';
 
 @RestApi()
 abstract class SubsonicApiClient {
-  factory SubsonicApiClient(
-    Dio dio, {
-    String baseUrl,
-  }) = _SubsonicApiClient;
+  factory SubsonicApiClient(Dio dio, {String baseUrl}) = _SubsonicApiClient;
 
   /// Since 1.0.0
   ///
@@ -91,9 +88,7 @@ abstract class SubsonicApiClient {
   ///
   /// - [artistId] The artist ID.
   @GET('/rest/getArtist')
-  Future<SubsonicResponse<ArtistModel>> getArtist(
-    @Query('id') String artistId,
-  );
+  Future<SubsonicResponse<ArtistModel>> getArtist(@Query('id') String artistId);
 
   /// Since 1.8.0
   ///
@@ -101,9 +96,7 @@ abstract class SubsonicApiClient {
   ///
   /// - [albumId] The album ID.
   @GET('/rest/getAlbum')
-  Future<SubsonicResponse<AlbumModel>> getAlbum(
-    @Query('id') String albumId,
-  );
+  Future<SubsonicResponse<AlbumModel>> getAlbum(@Query('id') String albumId);
 
   /// Since 1.0.0
   ///
@@ -162,6 +155,64 @@ abstract class SubsonicApiClient {
     @Query('converted') bool converted = false,
   });
 
+  static RequestOptions createStreamRequestOptions(
+    String id,
+    Dio dio,
+    String baseUrl, {
+    int? maxBitRate,
+    String? format,
+    int? timeOffset,
+    String? size,
+    bool estimateContentLength = false,
+    bool converted = false,
+  }) {
+    final _extra = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final queryParameters = <String, dynamic>{
+      r'id': id,
+      r'maxBitRate': maxBitRate,
+      r'format': format,
+      r'timeOffset': timeOffset,
+      r'size': size,
+      r'estimateContentLength': estimateContentLength,
+      r'converted': converted,
+    };
+    queryParameters.removeWhere((k, v) => v == null);
+    return Options(
+          method: 'GET',
+          headers: _headers,
+          extra: _extra,
+          responseType: ResponseType.stream,
+        )
+        .compose(
+          dio.options,
+          '/rest/stream',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+          baseUrl: SubsonicApiClient.combineBaseUrls(
+            dio.options.baseUrl,
+            baseUrl,
+          ),
+        );
+  }
+
+  static String combineBaseUrls(String dioBaseUrl, String? baseUrl) {
+    if (baseUrl == null || baseUrl.trim().isEmpty) {
+      return dioBaseUrl;
+    }
+
+    final url = Uri.parse(baseUrl);
+
+    if (url.isAbsolute) {
+      return url.toString();
+    }
+
+    return Uri.parse(dioBaseUrl).resolveUri(url).toString();
+  }
+
   /// Since 1.0.0
   ///
   /// Same as [stream], but returns response headers only, no body;
@@ -183,9 +234,7 @@ abstract class SubsonicApiClient {
   ///
   /// - [songId] The song ID.
   @GET('/rest/getSong')
-  Future<SubsonicResponse<MediaModel>> getSong(
-    @Query('id') String songId,
-  );
+  Future<SubsonicResponse<MediaModel>> getSong(@Query('id') String songId);
 
   /// Since 1.11.0
   ///
@@ -221,9 +270,7 @@ abstract class SubsonicApiClient {
   ///
   /// - [id] 	The album or song ID.
   @GET('/rest/getAlbumInfo')
-  Future<SubsonicResponse<AlbumInfoModel>> getAlbumInfo(
-    @Query('id') String id,
-  );
+  Future<SubsonicResponse<AlbumInfoModel>> getAlbumInfo(@Query('id') String id);
 
   /// Since 1.14.0
   ///
@@ -252,9 +299,7 @@ abstract class SubsonicApiClient {
   ///
   /// - [id] ID of the playlist to return, as obtained by [getPlaylists].
   @GET('/rest/getPlaylist')
-  Future<SubsonicResponse<PlaylistModel>> getPlaylist(
-    @Query('id') String id,
-  );
+  Future<SubsonicResponse<PlaylistModel>> getPlaylist(@Query('id') String id);
 
   /// Since 1.2.0
   ///

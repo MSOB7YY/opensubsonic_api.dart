@@ -6,7 +6,7 @@ part 'index.model.freezed.dart';
 part 'index.model.g.dart';
 
 @freezed
-class IndexModel with _$IndexModel {
+abstract class IndexModel with _$IndexModel {
   const factory IndexModel({
     required List<ArtistModel> artist,
     required String name,

@@ -6,7 +6,7 @@ part 'albums.model.freezed.dart';
 part 'albums.model.g.dart';
 
 @freezed
-class AlbumsModel with _$AlbumsModel {
+abstract class AlbumsModel with _$AlbumsModel {
   const factory AlbumsModel({
     @JsonKey(name: 'album') required List<AlbumModel> albums,
   }) = _AlbumsModel;

@@ -6,7 +6,7 @@ part 'license.model.freezed.dart';
 part 'license.model.g.dart';
 
 @freezed
-class License with _$License {
+abstract class License with _$License {
   const factory License({
     required bool valid,
     String? email,

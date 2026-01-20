@@ -6,7 +6,7 @@ part 'music_folders.model.freezed.dart';
 part 'music_folders.model.g.dart';
 
 @freezed
-class MusicFoldersModel with _$MusicFoldersModel {
+abstract class MusicFoldersModel with _$MusicFoldersModel {
   factory MusicFoldersModel({
     required List<MusicFolderModel> musicFolder,
   }) = _MusicFoldersModel;

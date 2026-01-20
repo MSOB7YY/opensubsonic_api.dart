@@ -6,16 +6,11 @@ part of 'error.model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SubsonicErrorModelImpl _$$SubsonicErrorModelImplFromJson(
-        Map<String, dynamic> json) =>
-    _$SubsonicErrorModelImpl(
+_SubsonicErrorModel _$SubsonicErrorModelFromJson(Map<String, dynamic> json) =>
+    _SubsonicErrorModel(
       code: (json['code'] as num).toInt(),
       message: json['message'] as String,
     );
 
-Map<String, dynamic> _$$SubsonicErrorModelImplToJson(
-        _$SubsonicErrorModelImpl instance) =>
-    <String, dynamic>{
-      'code': instance.code,
-      'message': instance.message,
-    };
+Map<String, dynamic> _$SubsonicErrorModelToJson(_SubsonicErrorModel instance) =>
+    <String, dynamic>{'code': instance.code, 'message': instance.message};

@@ -4,7 +4,7 @@ part 'genre.model.freezed.dart';
 part 'genre.model.g.dart';
 
 @freezed
-class GenreModel with _$GenreModel {
+abstract class GenreModel with _$GenreModel {
   const factory GenreModel({
     required String value,
 

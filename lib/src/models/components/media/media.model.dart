@@ -9,7 +9,7 @@ part 'media.model.freezed.dart';
 part 'media.model.g.dart';
 
 @freezed
-class MediaModel with _$MediaModel {
+abstract class MediaModel with _$MediaModel {
   const factory MediaModel({
     required String id,
     String? parent,

@@ -8,7 +8,7 @@ part 'playlist.model.freezed.dart';
 part 'playlist.model.g.dart';
 
 @freezed
-class PlaylistModel with _$PlaylistModel {
+abstract class PlaylistModel with _$PlaylistModel {
   const factory PlaylistModel({
     /// <!-- Added in 1.8.0 -->
     @Default([]) List<String> allowedUser,

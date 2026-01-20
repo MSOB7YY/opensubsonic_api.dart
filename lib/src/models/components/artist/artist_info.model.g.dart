@@ -6,23 +6,22 @@ part of 'artist_info.model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ArtistInfoModelImpl _$$ArtistInfoModelImplFromJson(
-        Map<String, dynamic> json) =>
-    _$ArtistInfoModelImpl(
+_ArtistInfoModel _$ArtistInfoModelFromJson(Map<String, dynamic> json) =>
+    _ArtistInfoModel(
       biography: json['biography'] as String?,
       musicBrainzId: json['musicBrainzId'] as String?,
       lastFmUrl: json['lastFmUrl'] as String?,
       smallImageUrl: json['smallImageUrl'] as String?,
       mediumImageUrl: json['mediumImageUrl'] as String?,
       largeImageUrl: json['largeImageUrl'] as String?,
-      similarArtist: (json['similarArtist'] as List<dynamic>?)
+      similarArtist:
+          (json['similarArtist'] as List<dynamic>?)
               ?.map((e) => ArtistModel.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
     );
 
-Map<String, dynamic> _$$ArtistInfoModelImplToJson(
-        _$ArtistInfoModelImpl instance) =>
+Map<String, dynamic> _$ArtistInfoModelToJson(_ArtistInfoModel instance) =>
     <String, dynamic>{
       'biography': instance.biography,
       'musicBrainzId': instance.musicBrainzId,
