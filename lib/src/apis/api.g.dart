@@ -165,6 +165,33 @@ class _SubsonicApiClient implements SubsonicApiClient {
   }
 
   @override
+  Future<SubsonicResponse<DirectorysModel>> getMusicDirectory(String id) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'id': id};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<SubsonicResponse<DirectorysModel>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/rest/getMusicDirectory',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late SubsonicResponse<DirectorysModel> _value;
+    try {
+      _value = SubsonicResponse<DirectorysModel>.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options, response: _result);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
   Future<SubsonicResponse<GenresModel>> getGenres() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};

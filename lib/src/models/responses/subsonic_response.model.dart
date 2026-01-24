@@ -31,7 +31,7 @@ class SubsonicResponse<T> {
 
   factory SubsonicResponse.fromJson(Map<String, dynamic> json) =>
       SubsonicResponse(
-        uri: json[realURi] as String,
+        uri: json[realURi],
         headers: json[responseHeaders] as Map<String, List<String>>,
         response: SubsonicResponseConvertor<T>().fromJson(
           json[subsonicResponse],
@@ -68,6 +68,7 @@ abstract class SubsonicResponseData<T> with _$SubsonicResponseData<T> {
   }) = _SubsonicResponse;
 
   factory SubsonicResponseData.fromJson(
-          Map<String, dynamic> json, T Function(Object?) fromJsonT) =>
-      _$SubsonicResponseDataFromJson(json, fromJsonT);
+    Map<String, dynamic> json,
+    T Function(Object?) fromJsonT,
+  ) => _$SubsonicResponseDataFromJson(json, fromJsonT);
 }

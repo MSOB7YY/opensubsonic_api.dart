@@ -7,6 +7,7 @@ import '../models/components/albums/albums.model.dart';
 import '../models/components/artist/artist.model.dart';
 import '../models/components/artist/artist_info.model.dart';
 import '../models/components/artists/artists.model.dart';
+import '../models/components/directorys/directorys.model.dart';
 import '../models/components/genres/genres.model.dart';
 import '../models/components/license/license.model.dart';
 import '../models/components/lyrics/lyrics.model.dart';
@@ -29,6 +30,7 @@ class SubsonicResponseConvertor<T>
     'license': License.fromJson,
     'album': AlbumModel.fromJson,
     'musicFolders': MusicFoldersModel.fromJson,
+    'directory': DirectorysModel.fromJson,
     'indexes': ArtistsModel.fromJson,
     'artists': ArtistsModel.fromJson,
     'artist': ArtistModel.fromJson,

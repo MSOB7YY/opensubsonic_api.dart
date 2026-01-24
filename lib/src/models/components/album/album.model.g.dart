@@ -13,8 +13,9 @@ _AlbumModel _$AlbumModelFromJson(Map<String, dynamic> json) => _AlbumModel(
   artistId: json['artistId'] as String?,
   coverArt: json['coverArt'] as String?,
   songCount: (json['songCount'] as num).toInt(),
-  duration: const DurationConvertor().fromJson(
-    (json['duration'] as num).toInt(),
+  duration: _$JsonConverterFromJson<int, Duration>(
+    json['duration'],
+    const DurationConvertor().fromJson,
   ),
   playCount: (json['playCount'] as num?)?.toInt(),
   created: _$JsonConverterFromJson<String, DateTime>(
@@ -42,7 +43,10 @@ Map<String, dynamic> _$AlbumModelToJson(_AlbumModel instance) =>
       'artistId': instance.artistId,
       'coverArt': instance.coverArt,
       'songCount': instance.songCount,
-      'duration': const DurationConvertor().toJson(instance.duration),
+      'duration': _$JsonConverterToJson<int, Duration>(
+        instance.duration,
+        const DurationConvertor().toJson,
+      ),
       'playCount': instance.playCount,
       'created': _$JsonConverterToJson<String, DateTime>(
         instance.created,

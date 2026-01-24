@@ -10,6 +10,7 @@ import '../models/components/albums/albums.model.dart';
 import '../models/components/artist/artist.model.dart';
 import '../models/components/artist/artist_info.model.dart';
 import '../models/components/artists/artists.model.dart';
+import '../models/components/directorys/directorys.model.dart';
 import '../models/components/genres/genres.model.dart';
 import '../models/components/license/license.model.dart';
 import '../models/components/lyrics/lyrics.model.dart';
@@ -76,6 +77,18 @@ abstract class SubsonicApiClient {
   @GET('/rest/getMusicFolders')
   Future<SubsonicResponse<MusicFoldersModel>> getMusicFolders();
 
+  /// Since 1.0.0
+  ///
+  /// Returns a listing of all files in a music directory. Typically used to get
+  /// list of albums for an artist, or list of songs for an album.
+  ///
+  /// - [id] A string which uniquely identifies the music folder.
+  /// Obtained by calls to getIndexes or getMusicDirectory.
+  @GET('/rest/getMusicDirectory')
+  Future<SubsonicResponse<DirectorysModel>> getMusicDirectory(
+    @Query('id') String id,
+  );
+
   /// Since 1.9.0
   ///
   /// Returns all genres.
@@ -110,6 +123,28 @@ abstract class SubsonicApiClient {
     @Query('id') String id, {
     @Query('size') int? size,
   });
+
+  static RequestOptions createGetCoverArtOptions(
+    String id,
+    Dio dio, {
+    int? size,
+  }) {
+    final queryParameters = <String, dynamic>{r'id': id, r'size': size};
+    queryParameters.removeWhere((k, v) => v == null);
+    return setStreamType<SubsonicResponse<Uint8List?>>(
+      Options(
+        method: 'GET',
+        headers: <String, dynamic>{},
+        extra: <String, dynamic>{},
+        responseType: ResponseType.bytes,
+      ).compose(
+        dio.options,
+        '/rest/getCoverArt',
+        queryParameters: queryParameters,
+        data: null,
+      ),
+    );
+  }
 
   /// Since 1.8.0
   ///
@@ -157,8 +192,7 @@ abstract class SubsonicApiClient {
 
   static RequestOptions createStreamRequestOptions(
     String id,
-    Dio dio,
-    String baseUrl, {
+    Dio dio, {
     int? maxBitRate,
     String? format,
     int? timeOffset,
@@ -166,9 +200,6 @@ abstract class SubsonicApiClient {
     bool estimateContentLength = false,
     bool converted = false,
   }) {
-    final _extra = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
     final queryParameters = <String, dynamic>{
       r'id': id,
       r'maxBitRate': maxBitRate,
@@ -180,23 +211,29 @@ abstract class SubsonicApiClient {
     };
     queryParameters.removeWhere((k, v) => v == null);
     return Options(
-          method: 'GET',
-          headers: _headers,
-          extra: _extra,
-          responseType: ResponseType.stream,
-        )
-        .compose(
-          dio.options,
-          '/rest/stream',
-          queryParameters: queryParameters,
-          data: _data,
-        )
-        .copyWith(
-          baseUrl: SubsonicApiClient.combineBaseUrls(
-            dio.options.baseUrl,
-            baseUrl,
-          ),
-        );
+      method: 'GET',
+      headers: <String, dynamic>{},
+      extra: <String, dynamic>{},
+      responseType: ResponseType.stream,
+    ).compose(
+      dio.options,
+      '/rest/stream',
+      queryParameters: queryParameters,
+      data: null,
+    );
+  }
+
+  static RequestOptions setStreamType<T>(RequestOptions requestOptions) {
+    if (T != dynamic &&
+        !(requestOptions.responseType == ResponseType.bytes ||
+            requestOptions.responseType == ResponseType.stream)) {
+      if (T == String) {
+        requestOptions.responseType = ResponseType.plain;
+      } else {
+        requestOptions.responseType = ResponseType.json;
+      }
+    }
+    return requestOptions;
   }
 
   static String combineBaseUrls(String dioBaseUrl, String? baseUrl) {
