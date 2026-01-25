@@ -11,27 +11,24 @@ import '../utils/cast.util.dart';
 class JsonInterceptor extends InterceptorsWrapper {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    options.queryParameters.addAll({
-      'f': 'json',
-    });
+    options.queryParameters.addAll({'f': 'json'});
     return handler.next(options);
   }
 
   @override
-  void onResponse(
-    Response response,
-    ResponseInterceptorHandler handler,
-  ) {
+  void onResponse(Response response, ResponseInterceptorHandler handler) {
     final responseType = response.requestOptions.responseType;
 
     final data = response.data;
     JSONObject newResponse = safeCast<JSONObject>(data) ?? {};
 
-    final contentType = response.headers.value(HttpHeaders.contentTypeHeader);
+    final contentType =
+        response.headers[HttpHeaders.contentTypeHeader]?.firstOrNull;
     if (responseType == ResponseType.bytes) {
       if (contentType == 'application/json') {
         print(
-            '[Subsonic API] Expected bytes, but got json, thus error occurred, convert it to JSON');
+          '[Subsonic API] Expected bytes, but got json, thus error occurred, convert it to JSON',
+        );
         final byteString = String.fromCharCodes(data as Uint8List);
         final json = jsonDecode(byteString) as JSONObject;
         newResponse = json;
