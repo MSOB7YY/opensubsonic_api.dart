@@ -1,7 +1,6 @@
 import 'dart:typed_data';
 
 import 'package:dio/dio.dart' hide Headers;
-
 import 'package:retrofit/retrofit.dart';
 
 import '../models/components/album/album.model.dart';
@@ -180,7 +179,7 @@ abstract class SubsonicApiClient {
   /// cause the converted video to be returned instead of the original.
   @GET('/rest/stream')
   @DioResponseType(ResponseType.stream)
-  Future<SubsonicResponse<Stream<Uint8List>?>> stream(
+  Stream<Uint8List> stream(
     @Query('id') String id, {
     @Query('maxBitRate') int? maxBitRate,
     @Query('format') String? format,
@@ -255,7 +254,7 @@ abstract class SubsonicApiClient {
   /// Same as [stream], but returns response headers only, no body;
   @HEAD('/rest/stream')
   @DioResponseType(ResponseType.stream)
-  Future<SubsonicResponse<void>> streamInfo(
+  Stream<Uint8List> streamInfo(
     @Query('id') String id, {
     @Query('maxBitRate') int? maxBitRate,
     @Query('format') String? format,

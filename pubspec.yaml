@@ -1,6 +1,6 @@
 name: opensubsonic_api
 description: opensubsonic_api.dart is a wrapper for the Subsonic API in Dart, with additional support for OpenSubsonic.
-version: 0.3.1
+version: 0.4.0
 homepage: https://github.com/RanKKI/opensubsonic_api.dart
 repository: https://github.com/RanKKI/opensubsonic_api.dart
 
@@ -11,8 +11,8 @@ dependencies:
   crypto: ^3.0.5
   dio: ^5.9.0
   freezed_annotation: ^3.1.0
-  json_annotation: ^4.9.0
-  retrofit: '>=4.0.0 <5.0.0'
+  json_annotation: ^4.12.0
+  retrofit: ">=4.0.0 <5.0.0"
 
 dev_dependencies:
   lints: ^6.0.0

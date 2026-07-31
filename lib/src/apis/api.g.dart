@@ -8,7 +8,7 @@ part of 'api.dart';
 // RetrofitGenerator
 // **************************************************************************
 
-// ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations,unused_element_parameter,avoid_unused_constructor_parameters,unreachable_from_main
+// ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations,unused_element_parameter,avoid_unused_constructor_parameters,unreachable_from_main,avoid_redundant_argument_values
 
 class _SubsonicApiClient implements SubsonicApiClient {
   _SubsonicApiClient(this._dio, {this.baseUrl, this.errorLogger});
@@ -336,7 +336,7 @@ class _SubsonicApiClient implements SubsonicApiClient {
   }
 
   @override
-  Future<SubsonicResponse<Stream<Uint8List>?>> stream(
+  Stream<Uint8List> stream(
     String id, {
     int? maxBitRate,
     String? format,
@@ -344,7 +344,7 @@ class _SubsonicApiClient implements SubsonicApiClient {
     String? size,
     bool estimateContentLength = false,
     bool converted = false,
-  }) async {
+  }) async* {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'id': id,
@@ -358,7 +358,7 @@ class _SubsonicApiClient implements SubsonicApiClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<SubsonicResponse<Stream<Uint8List>?>>(
+    final _options = _setStreamType<Uint8List>(
       Options(
             method: 'GET',
             headers: _headers,
@@ -373,19 +373,15 @@ class _SubsonicApiClient implements SubsonicApiClient {
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
-    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late SubsonicResponse<Stream<Uint8List>?> _value;
-    try {
-      _value = SubsonicResponse<Stream<Uint8List>?>.fromJson(_result.data!);
-    } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options, response: _result);
-      rethrow;
-    }
-    return _value;
+    final _result = _dio.fetch<ResponseBody>(_options);
+    final _value = _result.asStream().asyncExpand(
+      (response) => response.data!.stream,
+    );
+    yield* _value;
   }
 
   @override
-  Future<SubsonicResponse<void>> streamInfo(
+  Stream<Uint8List> streamInfo(
     String id, {
     int? maxBitRate,
     String? format,
@@ -393,7 +389,7 @@ class _SubsonicApiClient implements SubsonicApiClient {
     String? size,
     bool estimateContentLength = false,
     bool converted = false,
-  }) async {
+  }) async* {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'id': id,
@@ -407,7 +403,7 @@ class _SubsonicApiClient implements SubsonicApiClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<SubsonicResponse<void>>(
+    final _options = _setStreamType<Uint8List>(
       Options(
             method: 'HEAD',
             headers: _headers,
@@ -422,15 +418,11 @@ class _SubsonicApiClient implements SubsonicApiClient {
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
-    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late SubsonicResponse<void> _value;
-    try {
-      _value = SubsonicResponse<void>.fromJson(_result.data!);
-    } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options, response: _result);
-      rethrow;
-    }
-    return _value;
+    final _result = _dio.fetch<ResponseBody>(_options);
+    final _value = _result.asStream().asyncExpand(
+      (response) => response.data!.stream,
+    );
+    yield* _value;
   }
 
   @override
