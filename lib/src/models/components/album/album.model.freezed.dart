@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$AlbumModel {
 
- String get id;@JsonKey(readValue: _getAlbumName) String get name; String? get artist; String? get artistId; String? get coverArt; int get songCount;@DurationConvertor() Duration? get duration; int? get playCount;/// Added in 1.14.0
+ String get id;@JsonKey(readValue: _getAlbumName) String get name; String? get artist; String? get artistId; String? get coverArt; int? get songCount;@DurationConvertor() Duration? get duration; int? get playCount;/// Added in 1.14.0
 @DateTimeConvertor() DateTime? get created;@DateTimeConvertor() DateTime? get starred;/// Added in 1.10.1
  int? get year;/// Added in 1.10.1
  String? get genre; List<MediaModel> get song;
@@ -51,7 +51,7 @@ abstract mixin class $AlbumModelCopyWith<$Res>  {
   factory $AlbumModelCopyWith(AlbumModel value, $Res Function(AlbumModel) _then) = _$AlbumModelCopyWithImpl;
 @useResult
 $Res call({
- String id,@JsonKey(readValue: _getAlbumName) String name, String? artist, String? artistId, String? coverArt, int songCount,@DurationConvertor() Duration? duration, int? playCount,@DateTimeConvertor() DateTime? created,@DateTimeConvertor() DateTime? starred, int? year, String? genre, List<MediaModel> song
+ String id,@JsonKey(readValue: _getAlbumName) String name, String? artist, String? artistId, String? coverArt, int? songCount,@DurationConvertor() Duration? duration, int? playCount,@DateTimeConvertor() DateTime? created,@DateTimeConvertor() DateTime? starred, int? year, String? genre, List<MediaModel> song
 });
 
 
@@ -68,15 +68,15 @@ class _$AlbumModelCopyWithImpl<$Res>
 
 /// Create a copy of AlbumModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? artist = freezed,Object? artistId = freezed,Object? coverArt = freezed,Object? songCount = null,Object? duration = freezed,Object? playCount = freezed,Object? created = freezed,Object? starred = freezed,Object? year = freezed,Object? genre = freezed,Object? song = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? artist = freezed,Object? artistId = freezed,Object? coverArt = freezed,Object? songCount = freezed,Object? duration = freezed,Object? playCount = freezed,Object? created = freezed,Object? starred = freezed,Object? year = freezed,Object? genre = freezed,Object? song = null,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,artist: freezed == artist ? _self.artist : artist // ignore: cast_nullable_to_non_nullable
 as String?,artistId: freezed == artistId ? _self.artistId : artistId // ignore: cast_nullable_to_non_nullable
 as String?,coverArt: freezed == coverArt ? _self.coverArt : coverArt // ignore: cast_nullable_to_non_nullable
-as String?,songCount: null == songCount ? _self.songCount : songCount // ignore: cast_nullable_to_non_nullable
-as int,duration: freezed == duration ? _self.duration : duration // ignore: cast_nullable_to_non_nullable
+as String?,songCount: freezed == songCount ? _self.songCount : songCount // ignore: cast_nullable_to_non_nullable
+as int?,duration: freezed == duration ? _self.duration : duration // ignore: cast_nullable_to_non_nullable
 as Duration?,playCount: freezed == playCount ? _self.playCount : playCount // ignore: cast_nullable_to_non_nullable
 as int?,created: freezed == created ? _self.created : created // ignore: cast_nullable_to_non_nullable
 as DateTime?,starred: freezed == starred ? _self.starred : starred // ignore: cast_nullable_to_non_nullable
@@ -168,7 +168,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id, @JsonKey(readValue: _getAlbumName)  String name,  String? artist,  String? artistId,  String? coverArt,  int songCount, @DurationConvertor()  Duration? duration,  int? playCount, @DateTimeConvertor()  DateTime? created, @DateTimeConvertor()  DateTime? starred,  int? year,  String? genre,  List<MediaModel> song)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id, @JsonKey(readValue: _getAlbumName)  String name,  String? artist,  String? artistId,  String? coverArt,  int? songCount, @DurationConvertor()  Duration? duration,  int? playCount, @DateTimeConvertor()  DateTime? created, @DateTimeConvertor()  DateTime? starred,  int? year,  String? genre,  List<MediaModel> song)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AlbumModel() when $default != null:
 return $default(_that.id,_that.name,_that.artist,_that.artistId,_that.coverArt,_that.songCount,_that.duration,_that.playCount,_that.created,_that.starred,_that.year,_that.genre,_that.song);case _:
@@ -189,7 +189,7 @@ return $default(_that.id,_that.name,_that.artist,_that.artistId,_that.coverArt,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id, @JsonKey(readValue: _getAlbumName)  String name,  String? artist,  String? artistId,  String? coverArt,  int songCount, @DurationConvertor()  Duration? duration,  int? playCount, @DateTimeConvertor()  DateTime? created, @DateTimeConvertor()  DateTime? starred,  int? year,  String? genre,  List<MediaModel> song)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id, @JsonKey(readValue: _getAlbumName)  String name,  String? artist,  String? artistId,  String? coverArt,  int? songCount, @DurationConvertor()  Duration? duration,  int? playCount, @DateTimeConvertor()  DateTime? created, @DateTimeConvertor()  DateTime? starred,  int? year,  String? genre,  List<MediaModel> song)  $default,) {final _that = this;
 switch (_that) {
 case _AlbumModel():
 return $default(_that.id,_that.name,_that.artist,_that.artistId,_that.coverArt,_that.songCount,_that.duration,_that.playCount,_that.created,_that.starred,_that.year,_that.genre,_that.song);case _:
@@ -209,7 +209,7 @@ return $default(_that.id,_that.name,_that.artist,_that.artistId,_that.coverArt,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id, @JsonKey(readValue: _getAlbumName)  String name,  String? artist,  String? artistId,  String? coverArt,  int songCount, @DurationConvertor()  Duration? duration,  int? playCount, @DateTimeConvertor()  DateTime? created, @DateTimeConvertor()  DateTime? starred,  int? year,  String? genre,  List<MediaModel> song)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id, @JsonKey(readValue: _getAlbumName)  String name,  String? artist,  String? artistId,  String? coverArt,  int? songCount, @DurationConvertor()  Duration? duration,  int? playCount, @DateTimeConvertor()  DateTime? created, @DateTimeConvertor()  DateTime? starred,  int? year,  String? genre,  List<MediaModel> song)?  $default,) {final _that = this;
 switch (_that) {
 case _AlbumModel() when $default != null:
 return $default(_that.id,_that.name,_that.artist,_that.artistId,_that.coverArt,_that.songCount,_that.duration,_that.playCount,_that.created,_that.starred,_that.year,_that.genre,_that.song);case _:
@@ -232,7 +232,7 @@ class _AlbumModel implements AlbumModel {
 @override final  String? artist;
 @override final  String? artistId;
 @override final  String? coverArt;
-@override final  int songCount;
+@override final  int? songCount;
 @override@DurationConvertor() final  Duration? duration;
 @override final  int? playCount;
 /// Added in 1.14.0
@@ -283,7 +283,7 @@ abstract mixin class _$AlbumModelCopyWith<$Res> implements $AlbumModelCopyWith<$
   factory _$AlbumModelCopyWith(_AlbumModel value, $Res Function(_AlbumModel) _then) = __$AlbumModelCopyWithImpl;
 @override @useResult
 $Res call({
- String id,@JsonKey(readValue: _getAlbumName) String name, String? artist, String? artistId, String? coverArt, int songCount,@DurationConvertor() Duration? duration, int? playCount,@DateTimeConvertor() DateTime? created,@DateTimeConvertor() DateTime? starred, int? year, String? genre, List<MediaModel> song
+ String id,@JsonKey(readValue: _getAlbumName) String name, String? artist, String? artistId, String? coverArt, int? songCount,@DurationConvertor() Duration? duration, int? playCount,@DateTimeConvertor() DateTime? created,@DateTimeConvertor() DateTime? starred, int? year, String? genre, List<MediaModel> song
 });
 
 
@@ -300,15 +300,15 @@ class __$AlbumModelCopyWithImpl<$Res>
 
 /// Create a copy of AlbumModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? artist = freezed,Object? artistId = freezed,Object? coverArt = freezed,Object? songCount = null,Object? duration = freezed,Object? playCount = freezed,Object? created = freezed,Object? starred = freezed,Object? year = freezed,Object? genre = freezed,Object? song = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? artist = freezed,Object? artistId = freezed,Object? coverArt = freezed,Object? songCount = freezed,Object? duration = freezed,Object? playCount = freezed,Object? created = freezed,Object? starred = freezed,Object? year = freezed,Object? genre = freezed,Object? song = null,}) {
   return _then(_AlbumModel(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,artist: freezed == artist ? _self.artist : artist // ignore: cast_nullable_to_non_nullable
 as String?,artistId: freezed == artistId ? _self.artistId : artistId // ignore: cast_nullable_to_non_nullable
 as String?,coverArt: freezed == coverArt ? _self.coverArt : coverArt // ignore: cast_nullable_to_non_nullable
-as String?,songCount: null == songCount ? _self.songCount : songCount // ignore: cast_nullable_to_non_nullable
-as int,duration: freezed == duration ? _self.duration : duration // ignore: cast_nullable_to_non_nullable
+as String?,songCount: freezed == songCount ? _self.songCount : songCount // ignore: cast_nullable_to_non_nullable
+as int?,duration: freezed == duration ? _self.duration : duration // ignore: cast_nullable_to_non_nullable
 as Duration?,playCount: freezed == playCount ? _self.playCount : playCount // ignore: cast_nullable_to_non_nullable
 as int?,created: freezed == created ? _self.created : created // ignore: cast_nullable_to_non_nullable
 as DateTime?,starred: freezed == starred ? _self.starred : starred // ignore: cast_nullable_to_non_nullable

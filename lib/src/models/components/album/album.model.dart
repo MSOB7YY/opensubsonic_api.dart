@@ -15,7 +15,7 @@ abstract class AlbumModel with _$AlbumModel {
     String? artist,
     String? artistId,
     String? coverArt,
-    required int songCount,
+    required int? songCount,
     @DurationConvertor() required Duration? duration,
     int? playCount,
 

@@ -12,7 +12,7 @@ _AlbumModel _$AlbumModelFromJson(Map<String, dynamic> json) => _AlbumModel(
   artist: json['artist'] as String?,
   artistId: json['artistId'] as String?,
   coverArt: json['coverArt'] as String?,
-  songCount: (json['songCount'] as num).toInt(),
+  songCount: (json['songCount'] as num?)?.toInt(),
   duration: _$JsonConverterFromJson<int, Duration>(
     json['duration'],
     const DurationConvertor().fromJson,
