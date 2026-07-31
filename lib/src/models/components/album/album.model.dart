@@ -11,7 +11,7 @@ part 'album.model.g.dart';
 abstract class AlbumModel with _$AlbumModel {
   const factory AlbumModel({
     required String id,
-    required String name,
+    @JsonKey(readValue: _getAlbumName) required String name,
     String? artist,
     String? artistId,
     String? coverArt,
@@ -31,6 +31,7 @@ abstract class AlbumModel with _$AlbumModel {
     @Default([]) List<MediaModel> song,
   }) = _AlbumModel;
 
-  factory AlbumModel.fromJson(Map<String, dynamic> json) =>
-      _$AlbumModelFromJson(json);
+  factory AlbumModel.fromJson(Map<String, dynamic> json) => _$AlbumModelFromJson(json);
 }
+
+String _getAlbumName(Map<dynamic, dynamic> json, dynamic value) => (json['name'] ?? json['album'] ?? json['title'] ?? '') as String;

@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$AlbumModel {
 
- String get id; String get name; String? get artist; String? get artistId; String? get coverArt; int get songCount;@DurationConvertor() Duration? get duration; int? get playCount;/// Added in 1.14.0
+ String get id;@JsonKey(readValue: _getAlbumName) String get name; String? get artist; String? get artistId; String? get coverArt; int get songCount;@DurationConvertor() Duration? get duration; int? get playCount;/// Added in 1.14.0
 @DateTimeConvertor() DateTime? get created;@DateTimeConvertor() DateTime? get starred;/// Added in 1.10.1
  int? get year;/// Added in 1.10.1
  String? get genre; List<MediaModel> get song;
@@ -51,7 +51,7 @@ abstract mixin class $AlbumModelCopyWith<$Res>  {
   factory $AlbumModelCopyWith(AlbumModel value, $Res Function(AlbumModel) _then) = _$AlbumModelCopyWithImpl;
 @useResult
 $Res call({
- String id, String name, String? artist, String? artistId, String? coverArt, int songCount,@DurationConvertor() Duration? duration, int? playCount,@DateTimeConvertor() DateTime? created,@DateTimeConvertor() DateTime? starred, int? year, String? genre, List<MediaModel> song
+ String id,@JsonKey(readValue: _getAlbumName) String name, String? artist, String? artistId, String? coverArt, int songCount,@DurationConvertor() Duration? duration, int? playCount,@DateTimeConvertor() DateTime? created,@DateTimeConvertor() DateTime? starred, int? year, String? genre, List<MediaModel> song
 });
 
 
@@ -168,7 +168,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String name,  String? artist,  String? artistId,  String? coverArt,  int songCount, @DurationConvertor()  Duration? duration,  int? playCount, @DateTimeConvertor()  DateTime? created, @DateTimeConvertor()  DateTime? starred,  int? year,  String? genre,  List<MediaModel> song)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id, @JsonKey(readValue: _getAlbumName)  String name,  String? artist,  String? artistId,  String? coverArt,  int songCount, @DurationConvertor()  Duration? duration,  int? playCount, @DateTimeConvertor()  DateTime? created, @DateTimeConvertor()  DateTime? starred,  int? year,  String? genre,  List<MediaModel> song)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AlbumModel() when $default != null:
 return $default(_that.id,_that.name,_that.artist,_that.artistId,_that.coverArt,_that.songCount,_that.duration,_that.playCount,_that.created,_that.starred,_that.year,_that.genre,_that.song);case _:
@@ -189,7 +189,7 @@ return $default(_that.id,_that.name,_that.artist,_that.artistId,_that.coverArt,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name,  String? artist,  String? artistId,  String? coverArt,  int songCount, @DurationConvertor()  Duration? duration,  int? playCount, @DateTimeConvertor()  DateTime? created, @DateTimeConvertor()  DateTime? starred,  int? year,  String? genre,  List<MediaModel> song)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id, @JsonKey(readValue: _getAlbumName)  String name,  String? artist,  String? artistId,  String? coverArt,  int songCount, @DurationConvertor()  Duration? duration,  int? playCount, @DateTimeConvertor()  DateTime? created, @DateTimeConvertor()  DateTime? starred,  int? year,  String? genre,  List<MediaModel> song)  $default,) {final _that = this;
 switch (_that) {
 case _AlbumModel():
 return $default(_that.id,_that.name,_that.artist,_that.artistId,_that.coverArt,_that.songCount,_that.duration,_that.playCount,_that.created,_that.starred,_that.year,_that.genre,_that.song);case _:
@@ -209,7 +209,7 @@ return $default(_that.id,_that.name,_that.artist,_that.artistId,_that.coverArt,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String name,  String? artist,  String? artistId,  String? coverArt,  int songCount, @DurationConvertor()  Duration? duration,  int? playCount, @DateTimeConvertor()  DateTime? created, @DateTimeConvertor()  DateTime? starred,  int? year,  String? genre,  List<MediaModel> song)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id, @JsonKey(readValue: _getAlbumName)  String name,  String? artist,  String? artistId,  String? coverArt,  int songCount, @DurationConvertor()  Duration? duration,  int? playCount, @DateTimeConvertor()  DateTime? created, @DateTimeConvertor()  DateTime? starred,  int? year,  String? genre,  List<MediaModel> song)?  $default,) {final _that = this;
 switch (_that) {
 case _AlbumModel() when $default != null:
 return $default(_that.id,_that.name,_that.artist,_that.artistId,_that.coverArt,_that.songCount,_that.duration,_that.playCount,_that.created,_that.starred,_that.year,_that.genre,_that.song);case _:
@@ -224,11 +224,11 @@ return $default(_that.id,_that.name,_that.artist,_that.artistId,_that.coverArt,_
 @JsonSerializable()
 
 class _AlbumModel implements AlbumModel {
-  const _AlbumModel({required this.id, required this.name, this.artist, this.artistId, this.coverArt, required this.songCount, @DurationConvertor() required this.duration, this.playCount, @DateTimeConvertor() this.created, @DateTimeConvertor() this.starred, this.year, this.genre, final  List<MediaModel> song = const []}): _song = song;
+  const _AlbumModel({required this.id, @JsonKey(readValue: _getAlbumName) required this.name, this.artist, this.artistId, this.coverArt, required this.songCount, @DurationConvertor() required this.duration, this.playCount, @DateTimeConvertor() this.created, @DateTimeConvertor() this.starred, this.year, this.genre, final  List<MediaModel> song = const []}): _song = song;
   factory _AlbumModel.fromJson(Map<String, dynamic> json) => _$AlbumModelFromJson(json);
 
 @override final  String id;
-@override final  String name;
+@override@JsonKey(readValue: _getAlbumName) final  String name;
 @override final  String? artist;
 @override final  String? artistId;
 @override final  String? coverArt;
@@ -283,7 +283,7 @@ abstract mixin class _$AlbumModelCopyWith<$Res> implements $AlbumModelCopyWith<$
   factory _$AlbumModelCopyWith(_AlbumModel value, $Res Function(_AlbumModel) _then) = __$AlbumModelCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String name, String? artist, String? artistId, String? coverArt, int songCount,@DurationConvertor() Duration? duration, int? playCount,@DateTimeConvertor() DateTime? created,@DateTimeConvertor() DateTime? starred, int? year, String? genre, List<MediaModel> song
+ String id,@JsonKey(readValue: _getAlbumName) String name, String? artist, String? artistId, String? coverArt, int songCount,@DurationConvertor() Duration? duration, int? playCount,@DateTimeConvertor() DateTime? created,@DateTimeConvertor() DateTime? starred, int? year, String? genre, List<MediaModel> song
 });
 
 

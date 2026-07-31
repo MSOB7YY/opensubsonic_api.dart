@@ -8,7 +8,7 @@ part of 'album.model.dart';
 
 _AlbumModel _$AlbumModelFromJson(Map<String, dynamic> json) => _AlbumModel(
   id: json['id'] as String,
-  name: json['name'] as String,
+  name: _getAlbumName(json, 'name') as String,
   artist: json['artist'] as String?,
   artistId: json['artistId'] as String?,
   coverArt: json['coverArt'] as String?,
