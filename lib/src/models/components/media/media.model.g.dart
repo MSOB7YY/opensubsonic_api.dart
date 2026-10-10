@@ -50,6 +50,51 @@ _MediaModel _$MediaModelFromJson(Map<String, dynamic> json) => _MediaModel(
   ),
   originalWidth: (json['originalWidth'] as num?)?.toInt(),
   originalHeight: (json['originalHeight'] as num?)?.toInt(),
+  played: _$JsonConverterFromJson<String, DateTime>(
+    json['played'],
+    const DateTimeConvertor().fromJson,
+  ),
+  bpm: (json['bpm'] as num?)?.toInt(),
+  comment: json['comment'] as String?,
+  sortName: json['sortName'] as String?,
+  mediaType: json['mediaType'] as String?,
+  musicBrainzId: json['musicBrainzId'] as String?,
+  isrc:
+      (json['isrc'] as List<dynamic>?)?.map((e) => e as String).toList() ??
+      const [],
+  genres:
+      (json['genres'] as List<dynamic>?)
+          ?.map((e) => ItemGenreModel.fromJson(e as Map<String, dynamic>))
+          .toList() ??
+      const [],
+  artists:
+      (json['artists'] as List<dynamic>?)
+          ?.map((e) => ArtistRefModel.fromJson(e as Map<String, dynamic>))
+          .toList() ??
+      const [],
+  displayArtist: json['displayArtist'] as String?,
+  albumArtists:
+      (json['albumArtists'] as List<dynamic>?)
+          ?.map((e) => ArtistRefModel.fromJson(e as Map<String, dynamic>))
+          .toList() ??
+      const [],
+  displayAlbumArtist: json['displayAlbumArtist'] as String?,
+  contributors:
+      (json['contributors'] as List<dynamic>?)
+          ?.map((e) => ContributorModel.fromJson(e as Map<String, dynamic>))
+          .toList() ??
+      const [],
+  displayComposer: json['displayComposer'] as String?,
+  moods:
+      (json['moods'] as List<dynamic>?)?.map((e) => e as String).toList() ??
+      const [],
+  replayGain: json['replayGain'] == null
+      ? null
+      : ReplayGainModel.fromJson(json['replayGain'] as Map<String, dynamic>),
+  explicitStatus: json['explicitStatus'] as String?,
+  bitDepth: (json['bitDepth'] as num?)?.toInt(),
+  samplingRate: (json['samplingRate'] as num?)?.toInt(),
+  channelCount: (json['channelCount'] as num?)?.toInt(),
 );
 
 Map<String, dynamic> _$MediaModelToJson(_MediaModel instance) =>
@@ -97,6 +142,29 @@ Map<String, dynamic> _$MediaModelToJson(_MediaModel instance) =>
       ),
       'originalWidth': instance.originalWidth,
       'originalHeight': instance.originalHeight,
+      'played': _$JsonConverterToJson<String, DateTime>(
+        instance.played,
+        const DateTimeConvertor().toJson,
+      ),
+      'bpm': instance.bpm,
+      'comment': instance.comment,
+      'sortName': instance.sortName,
+      'mediaType': instance.mediaType,
+      'musicBrainzId': instance.musicBrainzId,
+      'isrc': instance.isrc,
+      'genres': instance.genres,
+      'artists': instance.artists,
+      'displayArtist': instance.displayArtist,
+      'albumArtists': instance.albumArtists,
+      'displayAlbumArtist': instance.displayAlbumArtist,
+      'contributors': instance.contributors,
+      'displayComposer': instance.displayComposer,
+      'moods': instance.moods,
+      'replayGain': instance.replayGain,
+      'explicitStatus': instance.explicitStatus,
+      'bitDepth': instance.bitDepth,
+      'samplingRate': instance.samplingRate,
+      'channelCount': instance.channelCount,
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(

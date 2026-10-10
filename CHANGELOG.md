@@ -1,3 +1,8 @@
+## 0.4.2
+
+- OpenSubsonic fields on `MediaModel` and `AlbumModel` (artists, albumArtists, contributors, genres, moods, replayGain, bitDepth, samplingRate, channelCount, recordLabels, releaseTypes, release dates, sortName, musicBrainzId ...)
+
+
 ## 0.3.0
 
 - Refactored int duration to Duration type

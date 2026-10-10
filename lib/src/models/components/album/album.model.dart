@@ -2,6 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../convertors/date_time.convertor.dart';
 import '../../../convertors/duration.convertor.dart';
+import '../item_details/item_details.model.dart';
 import '../media/media.model.dart';
 
 part 'album.model.freezed.dart';
@@ -29,6 +30,54 @@ abstract class AlbumModel with _$AlbumModel {
     /// Added in 1.10.1
     String? genre,
     @Default([]) List<MediaModel> song,
+
+    /// OpenSubsonic
+    @DateTimeConvertor() DateTime? played,
+
+    /// OpenSubsonic
+    int? userRating,
+
+    /// OpenSubsonic
+    @Default([]) List<RecordLabelModel> recordLabels,
+
+    /// OpenSubsonic, release MBID
+    String? musicBrainzId,
+
+    /// OpenSubsonic
+    @Default([]) List<ItemGenreModel> genres,
+
+    /// OpenSubsonic
+    @Default([]) List<ArtistRefModel> artists,
+
+    /// OpenSubsonic
+    String? displayArtist,
+
+    /// OpenSubsonic
+    @Default([]) List<String> releaseTypes,
+
+    /// OpenSubsonic
+    @Default([]) List<String> moods,
+
+    /// OpenSubsonic
+    String? sortName,
+
+    /// OpenSubsonic
+    ItemDateModel? originalReleaseDate,
+
+    /// OpenSubsonic
+    ItemDateModel? releaseDate,
+
+    /// OpenSubsonic
+    bool? isCompilation,
+
+    /// OpenSubsonic
+    String? explicitStatus,
+
+    /// OpenSubsonic
+    @Default([]) List<DiscTitleModel> discTitles,
+
+    /// OpenSubsonic
+    String? version,
   }) = _AlbumModel;
 
   factory AlbumModel.fromJson(Map<String, dynamic> json) => _$AlbumModelFromJson(json);

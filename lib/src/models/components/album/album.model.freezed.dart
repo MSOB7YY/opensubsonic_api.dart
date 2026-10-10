@@ -18,7 +18,23 @@ mixin _$AlbumModel {
  String get id;@JsonKey(readValue: _getAlbumName) String get name; String? get artist; String? get artistId; String? get coverArt; int? get songCount;@DurationConvertor() Duration? get duration; int? get playCount;/// Added in 1.14.0
 @DateTimeConvertor() DateTime? get created;@DateTimeConvertor() DateTime? get starred;/// Added in 1.10.1
  int? get year;/// Added in 1.10.1
- String? get genre; List<MediaModel> get song;
+ String? get genre; List<MediaModel> get song;/// OpenSubsonic
+@DateTimeConvertor() DateTime? get played;/// OpenSubsonic
+ int? get userRating;/// OpenSubsonic
+ List<RecordLabelModel> get recordLabels;/// OpenSubsonic, release MBID
+ String? get musicBrainzId;/// OpenSubsonic
+ List<ItemGenreModel> get genres;/// OpenSubsonic
+ List<ArtistRefModel> get artists;/// OpenSubsonic
+ String? get displayArtist;/// OpenSubsonic
+ List<String> get releaseTypes;/// OpenSubsonic
+ List<String> get moods;/// OpenSubsonic
+ String? get sortName;/// OpenSubsonic
+ ItemDateModel? get originalReleaseDate;/// OpenSubsonic
+ ItemDateModel? get releaseDate;/// OpenSubsonic
+ bool? get isCompilation;/// OpenSubsonic
+ String? get explicitStatus;/// OpenSubsonic
+ List<DiscTitleModel> get discTitles;/// OpenSubsonic
+ String? get version;
 /// Create a copy of AlbumModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -31,16 +47,16 @@ $AlbumModelCopyWith<AlbumModel> get copyWith => _$AlbumModelCopyWithImpl<AlbumMo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AlbumModel&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.artist, artist) || other.artist == artist)&&(identical(other.artistId, artistId) || other.artistId == artistId)&&(identical(other.coverArt, coverArt) || other.coverArt == coverArt)&&(identical(other.songCount, songCount) || other.songCount == songCount)&&(identical(other.duration, duration) || other.duration == duration)&&(identical(other.playCount, playCount) || other.playCount == playCount)&&(identical(other.created, created) || other.created == created)&&(identical(other.starred, starred) || other.starred == starred)&&(identical(other.year, year) || other.year == year)&&(identical(other.genre, genre) || other.genre == genre)&&const DeepCollectionEquality().equals(other.song, song));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AlbumModel&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.artist, artist) || other.artist == artist)&&(identical(other.artistId, artistId) || other.artistId == artistId)&&(identical(other.coverArt, coverArt) || other.coverArt == coverArt)&&(identical(other.songCount, songCount) || other.songCount == songCount)&&(identical(other.duration, duration) || other.duration == duration)&&(identical(other.playCount, playCount) || other.playCount == playCount)&&(identical(other.created, created) || other.created == created)&&(identical(other.starred, starred) || other.starred == starred)&&(identical(other.year, year) || other.year == year)&&(identical(other.genre, genre) || other.genre == genre)&&const DeepCollectionEquality().equals(other.song, song)&&(identical(other.played, played) || other.played == played)&&(identical(other.userRating, userRating) || other.userRating == userRating)&&const DeepCollectionEquality().equals(other.recordLabels, recordLabels)&&(identical(other.musicBrainzId, musicBrainzId) || other.musicBrainzId == musicBrainzId)&&const DeepCollectionEquality().equals(other.genres, genres)&&const DeepCollectionEquality().equals(other.artists, artists)&&(identical(other.displayArtist, displayArtist) || other.displayArtist == displayArtist)&&const DeepCollectionEquality().equals(other.releaseTypes, releaseTypes)&&const DeepCollectionEquality().equals(other.moods, moods)&&(identical(other.sortName, sortName) || other.sortName == sortName)&&(identical(other.originalReleaseDate, originalReleaseDate) || other.originalReleaseDate == originalReleaseDate)&&(identical(other.releaseDate, releaseDate) || other.releaseDate == releaseDate)&&(identical(other.isCompilation, isCompilation) || other.isCompilation == isCompilation)&&(identical(other.explicitStatus, explicitStatus) || other.explicitStatus == explicitStatus)&&const DeepCollectionEquality().equals(other.discTitles, discTitles)&&(identical(other.version, version) || other.version == version));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name,artist,artistId,coverArt,songCount,duration,playCount,created,starred,year,genre,const DeepCollectionEquality().hash(song));
+int get hashCode => Object.hashAll([runtimeType,id,name,artist,artistId,coverArt,songCount,duration,playCount,created,starred,year,genre,const DeepCollectionEquality().hash(song),played,userRating,const DeepCollectionEquality().hash(recordLabels),musicBrainzId,const DeepCollectionEquality().hash(genres),const DeepCollectionEquality().hash(artists),displayArtist,const DeepCollectionEquality().hash(releaseTypes),const DeepCollectionEquality().hash(moods),sortName,originalReleaseDate,releaseDate,isCompilation,explicitStatus,const DeepCollectionEquality().hash(discTitles),version]);
 
 @override
 String toString() {
-  return 'AlbumModel(id: $id, name: $name, artist: $artist, artistId: $artistId, coverArt: $coverArt, songCount: $songCount, duration: $duration, playCount: $playCount, created: $created, starred: $starred, year: $year, genre: $genre, song: $song)';
+  return 'AlbumModel(id: $id, name: $name, artist: $artist, artistId: $artistId, coverArt: $coverArt, songCount: $songCount, duration: $duration, playCount: $playCount, created: $created, starred: $starred, year: $year, genre: $genre, song: $song, played: $played, userRating: $userRating, recordLabels: $recordLabels, musicBrainzId: $musicBrainzId, genres: $genres, artists: $artists, displayArtist: $displayArtist, releaseTypes: $releaseTypes, moods: $moods, sortName: $sortName, originalReleaseDate: $originalReleaseDate, releaseDate: $releaseDate, isCompilation: $isCompilation, explicitStatus: $explicitStatus, discTitles: $discTitles, version: $version)';
 }
 
 
@@ -51,11 +67,11 @@ abstract mixin class $AlbumModelCopyWith<$Res>  {
   factory $AlbumModelCopyWith(AlbumModel value, $Res Function(AlbumModel) _then) = _$AlbumModelCopyWithImpl;
 @useResult
 $Res call({
- String id,@JsonKey(readValue: _getAlbumName) String name, String? artist, String? artistId, String? coverArt, int? songCount,@DurationConvertor() Duration? duration, int? playCount,@DateTimeConvertor() DateTime? created,@DateTimeConvertor() DateTime? starred, int? year, String? genre, List<MediaModel> song
+ String id,@JsonKey(readValue: _getAlbumName) String name, String? artist, String? artistId, String? coverArt, int? songCount,@DurationConvertor() Duration? duration, int? playCount,@DateTimeConvertor() DateTime? created,@DateTimeConvertor() DateTime? starred, int? year, String? genre, List<MediaModel> song,@DateTimeConvertor() DateTime? played, int? userRating, List<RecordLabelModel> recordLabels, String? musicBrainzId, List<ItemGenreModel> genres, List<ArtistRefModel> artists, String? displayArtist, List<String> releaseTypes, List<String> moods, String? sortName, ItemDateModel? originalReleaseDate, ItemDateModel? releaseDate, bool? isCompilation, String? explicitStatus, List<DiscTitleModel> discTitles, String? version
 });
 
 
-
+$ItemDateModelCopyWith<$Res>? get originalReleaseDate;$ItemDateModelCopyWith<$Res>? get releaseDate;
 
 }
 /// @nodoc
@@ -68,7 +84,7 @@ class _$AlbumModelCopyWithImpl<$Res>
 
 /// Create a copy of AlbumModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? artist = freezed,Object? artistId = freezed,Object? coverArt = freezed,Object? songCount = freezed,Object? duration = freezed,Object? playCount = freezed,Object? created = freezed,Object? starred = freezed,Object? year = freezed,Object? genre = freezed,Object? song = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? artist = freezed,Object? artistId = freezed,Object? coverArt = freezed,Object? songCount = freezed,Object? duration = freezed,Object? playCount = freezed,Object? created = freezed,Object? starred = freezed,Object? year = freezed,Object? genre = freezed,Object? song = null,Object? played = freezed,Object? userRating = freezed,Object? recordLabels = null,Object? musicBrainzId = freezed,Object? genres = null,Object? artists = null,Object? displayArtist = freezed,Object? releaseTypes = null,Object? moods = null,Object? sortName = freezed,Object? originalReleaseDate = freezed,Object? releaseDate = freezed,Object? isCompilation = freezed,Object? explicitStatus = freezed,Object? discTitles = null,Object? version = freezed,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
@@ -83,10 +99,50 @@ as DateTime?,starred: freezed == starred ? _self.starred : starred // ignore: ca
 as DateTime?,year: freezed == year ? _self.year : year // ignore: cast_nullable_to_non_nullable
 as int?,genre: freezed == genre ? _self.genre : genre // ignore: cast_nullable_to_non_nullable
 as String?,song: null == song ? _self.song : song // ignore: cast_nullable_to_non_nullable
-as List<MediaModel>,
+as List<MediaModel>,played: freezed == played ? _self.played : played // ignore: cast_nullable_to_non_nullable
+as DateTime?,userRating: freezed == userRating ? _self.userRating : userRating // ignore: cast_nullable_to_non_nullable
+as int?,recordLabels: null == recordLabels ? _self.recordLabels : recordLabels // ignore: cast_nullable_to_non_nullable
+as List<RecordLabelModel>,musicBrainzId: freezed == musicBrainzId ? _self.musicBrainzId : musicBrainzId // ignore: cast_nullable_to_non_nullable
+as String?,genres: null == genres ? _self.genres : genres // ignore: cast_nullable_to_non_nullable
+as List<ItemGenreModel>,artists: null == artists ? _self.artists : artists // ignore: cast_nullable_to_non_nullable
+as List<ArtistRefModel>,displayArtist: freezed == displayArtist ? _self.displayArtist : displayArtist // ignore: cast_nullable_to_non_nullable
+as String?,releaseTypes: null == releaseTypes ? _self.releaseTypes : releaseTypes // ignore: cast_nullable_to_non_nullable
+as List<String>,moods: null == moods ? _self.moods : moods // ignore: cast_nullable_to_non_nullable
+as List<String>,sortName: freezed == sortName ? _self.sortName : sortName // ignore: cast_nullable_to_non_nullable
+as String?,originalReleaseDate: freezed == originalReleaseDate ? _self.originalReleaseDate : originalReleaseDate // ignore: cast_nullable_to_non_nullable
+as ItemDateModel?,releaseDate: freezed == releaseDate ? _self.releaseDate : releaseDate // ignore: cast_nullable_to_non_nullable
+as ItemDateModel?,isCompilation: freezed == isCompilation ? _self.isCompilation : isCompilation // ignore: cast_nullable_to_non_nullable
+as bool?,explicitStatus: freezed == explicitStatus ? _self.explicitStatus : explicitStatus // ignore: cast_nullable_to_non_nullable
+as String?,discTitles: null == discTitles ? _self.discTitles : discTitles // ignore: cast_nullable_to_non_nullable
+as List<DiscTitleModel>,version: freezed == version ? _self.version : version // ignore: cast_nullable_to_non_nullable
+as String?,
   ));
 }
+/// Create a copy of AlbumModel
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ItemDateModelCopyWith<$Res>? get originalReleaseDate {
+    if (_self.originalReleaseDate == null) {
+    return null;
+  }
 
+  return $ItemDateModelCopyWith<$Res>(_self.originalReleaseDate!, (value) {
+    return _then(_self.copyWith(originalReleaseDate: value));
+  });
+}/// Create a copy of AlbumModel
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ItemDateModelCopyWith<$Res>? get releaseDate {
+    if (_self.releaseDate == null) {
+    return null;
+  }
+
+  return $ItemDateModelCopyWith<$Res>(_self.releaseDate!, (value) {
+    return _then(_self.copyWith(releaseDate: value));
+  });
+}
 }
 
 
@@ -168,10 +224,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id, @JsonKey(readValue: _getAlbumName)  String name,  String? artist,  String? artistId,  String? coverArt,  int? songCount, @DurationConvertor()  Duration? duration,  int? playCount, @DateTimeConvertor()  DateTime? created, @DateTimeConvertor()  DateTime? starred,  int? year,  String? genre,  List<MediaModel> song)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id, @JsonKey(readValue: _getAlbumName)  String name,  String? artist,  String? artistId,  String? coverArt,  int? songCount, @DurationConvertor()  Duration? duration,  int? playCount, @DateTimeConvertor()  DateTime? created, @DateTimeConvertor()  DateTime? starred,  int? year,  String? genre,  List<MediaModel> song, @DateTimeConvertor()  DateTime? played,  int? userRating,  List<RecordLabelModel> recordLabels,  String? musicBrainzId,  List<ItemGenreModel> genres,  List<ArtistRefModel> artists,  String? displayArtist,  List<String> releaseTypes,  List<String> moods,  String? sortName,  ItemDateModel? originalReleaseDate,  ItemDateModel? releaseDate,  bool? isCompilation,  String? explicitStatus,  List<DiscTitleModel> discTitles,  String? version)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _AlbumModel() when $default != null:
-return $default(_that.id,_that.name,_that.artist,_that.artistId,_that.coverArt,_that.songCount,_that.duration,_that.playCount,_that.created,_that.starred,_that.year,_that.genre,_that.song);case _:
+return $default(_that.id,_that.name,_that.artist,_that.artistId,_that.coverArt,_that.songCount,_that.duration,_that.playCount,_that.created,_that.starred,_that.year,_that.genre,_that.song,_that.played,_that.userRating,_that.recordLabels,_that.musicBrainzId,_that.genres,_that.artists,_that.displayArtist,_that.releaseTypes,_that.moods,_that.sortName,_that.originalReleaseDate,_that.releaseDate,_that.isCompilation,_that.explicitStatus,_that.discTitles,_that.version);case _:
   return orElse();
 
 }
@@ -189,10 +245,10 @@ return $default(_that.id,_that.name,_that.artist,_that.artistId,_that.coverArt,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id, @JsonKey(readValue: _getAlbumName)  String name,  String? artist,  String? artistId,  String? coverArt,  int? songCount, @DurationConvertor()  Duration? duration,  int? playCount, @DateTimeConvertor()  DateTime? created, @DateTimeConvertor()  DateTime? starred,  int? year,  String? genre,  List<MediaModel> song)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id, @JsonKey(readValue: _getAlbumName)  String name,  String? artist,  String? artistId,  String? coverArt,  int? songCount, @DurationConvertor()  Duration? duration,  int? playCount, @DateTimeConvertor()  DateTime? created, @DateTimeConvertor()  DateTime? starred,  int? year,  String? genre,  List<MediaModel> song, @DateTimeConvertor()  DateTime? played,  int? userRating,  List<RecordLabelModel> recordLabels,  String? musicBrainzId,  List<ItemGenreModel> genres,  List<ArtistRefModel> artists,  String? displayArtist,  List<String> releaseTypes,  List<String> moods,  String? sortName,  ItemDateModel? originalReleaseDate,  ItemDateModel? releaseDate,  bool? isCompilation,  String? explicitStatus,  List<DiscTitleModel> discTitles,  String? version)  $default,) {final _that = this;
 switch (_that) {
 case _AlbumModel():
-return $default(_that.id,_that.name,_that.artist,_that.artistId,_that.coverArt,_that.songCount,_that.duration,_that.playCount,_that.created,_that.starred,_that.year,_that.genre,_that.song);case _:
+return $default(_that.id,_that.name,_that.artist,_that.artistId,_that.coverArt,_that.songCount,_that.duration,_that.playCount,_that.created,_that.starred,_that.year,_that.genre,_that.song,_that.played,_that.userRating,_that.recordLabels,_that.musicBrainzId,_that.genres,_that.artists,_that.displayArtist,_that.releaseTypes,_that.moods,_that.sortName,_that.originalReleaseDate,_that.releaseDate,_that.isCompilation,_that.explicitStatus,_that.discTitles,_that.version);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -209,10 +265,10 @@ return $default(_that.id,_that.name,_that.artist,_that.artistId,_that.coverArt,_
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id, @JsonKey(readValue: _getAlbumName)  String name,  String? artist,  String? artistId,  String? coverArt,  int? songCount, @DurationConvertor()  Duration? duration,  int? playCount, @DateTimeConvertor()  DateTime? created, @DateTimeConvertor()  DateTime? starred,  int? year,  String? genre,  List<MediaModel> song)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id, @JsonKey(readValue: _getAlbumName)  String name,  String? artist,  String? artistId,  String? coverArt,  int? songCount, @DurationConvertor()  Duration? duration,  int? playCount, @DateTimeConvertor()  DateTime? created, @DateTimeConvertor()  DateTime? starred,  int? year,  String? genre,  List<MediaModel> song, @DateTimeConvertor()  DateTime? played,  int? userRating,  List<RecordLabelModel> recordLabels,  String? musicBrainzId,  List<ItemGenreModel> genres,  List<ArtistRefModel> artists,  String? displayArtist,  List<String> releaseTypes,  List<String> moods,  String? sortName,  ItemDateModel? originalReleaseDate,  ItemDateModel? releaseDate,  bool? isCompilation,  String? explicitStatus,  List<DiscTitleModel> discTitles,  String? version)?  $default,) {final _that = this;
 switch (_that) {
 case _AlbumModel() when $default != null:
-return $default(_that.id,_that.name,_that.artist,_that.artistId,_that.coverArt,_that.songCount,_that.duration,_that.playCount,_that.created,_that.starred,_that.year,_that.genre,_that.song);case _:
+return $default(_that.id,_that.name,_that.artist,_that.artistId,_that.coverArt,_that.songCount,_that.duration,_that.playCount,_that.created,_that.starred,_that.year,_that.genre,_that.song,_that.played,_that.userRating,_that.recordLabels,_that.musicBrainzId,_that.genres,_that.artists,_that.displayArtist,_that.releaseTypes,_that.moods,_that.sortName,_that.originalReleaseDate,_that.releaseDate,_that.isCompilation,_that.explicitStatus,_that.discTitles,_that.version);case _:
   return null;
 
 }
@@ -224,7 +280,7 @@ return $default(_that.id,_that.name,_that.artist,_that.artistId,_that.coverArt,_
 @JsonSerializable()
 
 class _AlbumModel implements AlbumModel {
-  const _AlbumModel({required this.id, @JsonKey(readValue: _getAlbumName) required this.name, this.artist, this.artistId, this.coverArt, required this.songCount, @DurationConvertor() required this.duration, this.playCount, @DateTimeConvertor() this.created, @DateTimeConvertor() this.starred, this.year, this.genre, final  List<MediaModel> song = const []}): _song = song;
+  const _AlbumModel({required this.id, @JsonKey(readValue: _getAlbumName) required this.name, this.artist, this.artistId, this.coverArt, required this.songCount, @DurationConvertor() required this.duration, this.playCount, @DateTimeConvertor() this.created, @DateTimeConvertor() this.starred, this.year, this.genre, final  List<MediaModel> song = const [], @DateTimeConvertor() this.played, this.userRating, final  List<RecordLabelModel> recordLabels = const [], this.musicBrainzId, final  List<ItemGenreModel> genres = const [], final  List<ArtistRefModel> artists = const [], this.displayArtist, final  List<String> releaseTypes = const [], final  List<String> moods = const [], this.sortName, this.originalReleaseDate, this.releaseDate, this.isCompilation, this.explicitStatus, final  List<DiscTitleModel> discTitles = const [], this.version}): _song = song,_recordLabels = recordLabels,_genres = genres,_artists = artists,_releaseTypes = releaseTypes,_moods = moods,_discTitles = discTitles;
   factory _AlbumModel.fromJson(Map<String, dynamic> json) => _$AlbumModelFromJson(json);
 
 @override final  String id;
@@ -249,6 +305,80 @@ class _AlbumModel implements AlbumModel {
   return EqualUnmodifiableListView(_song);
 }
 
+/// OpenSubsonic
+@override@DateTimeConvertor() final  DateTime? played;
+/// OpenSubsonic
+@override final  int? userRating;
+/// OpenSubsonic
+ final  List<RecordLabelModel> _recordLabels;
+/// OpenSubsonic
+@override@JsonKey() List<RecordLabelModel> get recordLabels {
+  if (_recordLabels is EqualUnmodifiableListView) return _recordLabels;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_recordLabels);
+}
+
+/// OpenSubsonic, release MBID
+@override final  String? musicBrainzId;
+/// OpenSubsonic
+ final  List<ItemGenreModel> _genres;
+/// OpenSubsonic
+@override@JsonKey() List<ItemGenreModel> get genres {
+  if (_genres is EqualUnmodifiableListView) return _genres;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_genres);
+}
+
+/// OpenSubsonic
+ final  List<ArtistRefModel> _artists;
+/// OpenSubsonic
+@override@JsonKey() List<ArtistRefModel> get artists {
+  if (_artists is EqualUnmodifiableListView) return _artists;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_artists);
+}
+
+/// OpenSubsonic
+@override final  String? displayArtist;
+/// OpenSubsonic
+ final  List<String> _releaseTypes;
+/// OpenSubsonic
+@override@JsonKey() List<String> get releaseTypes {
+  if (_releaseTypes is EqualUnmodifiableListView) return _releaseTypes;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_releaseTypes);
+}
+
+/// OpenSubsonic
+ final  List<String> _moods;
+/// OpenSubsonic
+@override@JsonKey() List<String> get moods {
+  if (_moods is EqualUnmodifiableListView) return _moods;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_moods);
+}
+
+/// OpenSubsonic
+@override final  String? sortName;
+/// OpenSubsonic
+@override final  ItemDateModel? originalReleaseDate;
+/// OpenSubsonic
+@override final  ItemDateModel? releaseDate;
+/// OpenSubsonic
+@override final  bool? isCompilation;
+/// OpenSubsonic
+@override final  String? explicitStatus;
+/// OpenSubsonic
+ final  List<DiscTitleModel> _discTitles;
+/// OpenSubsonic
+@override@JsonKey() List<DiscTitleModel> get discTitles {
+  if (_discTitles is EqualUnmodifiableListView) return _discTitles;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_discTitles);
+}
+
+/// OpenSubsonic
+@override final  String? version;
 
 /// Create a copy of AlbumModel
 /// with the given fields replaced by the non-null parameter values.
@@ -263,16 +393,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AlbumModel&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.artist, artist) || other.artist == artist)&&(identical(other.artistId, artistId) || other.artistId == artistId)&&(identical(other.coverArt, coverArt) || other.coverArt == coverArt)&&(identical(other.songCount, songCount) || other.songCount == songCount)&&(identical(other.duration, duration) || other.duration == duration)&&(identical(other.playCount, playCount) || other.playCount == playCount)&&(identical(other.created, created) || other.created == created)&&(identical(other.starred, starred) || other.starred == starred)&&(identical(other.year, year) || other.year == year)&&(identical(other.genre, genre) || other.genre == genre)&&const DeepCollectionEquality().equals(other._song, _song));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AlbumModel&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.artist, artist) || other.artist == artist)&&(identical(other.artistId, artistId) || other.artistId == artistId)&&(identical(other.coverArt, coverArt) || other.coverArt == coverArt)&&(identical(other.songCount, songCount) || other.songCount == songCount)&&(identical(other.duration, duration) || other.duration == duration)&&(identical(other.playCount, playCount) || other.playCount == playCount)&&(identical(other.created, created) || other.created == created)&&(identical(other.starred, starred) || other.starred == starred)&&(identical(other.year, year) || other.year == year)&&(identical(other.genre, genre) || other.genre == genre)&&const DeepCollectionEquality().equals(other._song, _song)&&(identical(other.played, played) || other.played == played)&&(identical(other.userRating, userRating) || other.userRating == userRating)&&const DeepCollectionEquality().equals(other._recordLabels, _recordLabels)&&(identical(other.musicBrainzId, musicBrainzId) || other.musicBrainzId == musicBrainzId)&&const DeepCollectionEquality().equals(other._genres, _genres)&&const DeepCollectionEquality().equals(other._artists, _artists)&&(identical(other.displayArtist, displayArtist) || other.displayArtist == displayArtist)&&const DeepCollectionEquality().equals(other._releaseTypes, _releaseTypes)&&const DeepCollectionEquality().equals(other._moods, _moods)&&(identical(other.sortName, sortName) || other.sortName == sortName)&&(identical(other.originalReleaseDate, originalReleaseDate) || other.originalReleaseDate == originalReleaseDate)&&(identical(other.releaseDate, releaseDate) || other.releaseDate == releaseDate)&&(identical(other.isCompilation, isCompilation) || other.isCompilation == isCompilation)&&(identical(other.explicitStatus, explicitStatus) || other.explicitStatus == explicitStatus)&&const DeepCollectionEquality().equals(other._discTitles, _discTitles)&&(identical(other.version, version) || other.version == version));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,name,artist,artistId,coverArt,songCount,duration,playCount,created,starred,year,genre,const DeepCollectionEquality().hash(_song));
+int get hashCode => Object.hashAll([runtimeType,id,name,artist,artistId,coverArt,songCount,duration,playCount,created,starred,year,genre,const DeepCollectionEquality().hash(_song),played,userRating,const DeepCollectionEquality().hash(_recordLabels),musicBrainzId,const DeepCollectionEquality().hash(_genres),const DeepCollectionEquality().hash(_artists),displayArtist,const DeepCollectionEquality().hash(_releaseTypes),const DeepCollectionEquality().hash(_moods),sortName,originalReleaseDate,releaseDate,isCompilation,explicitStatus,const DeepCollectionEquality().hash(_discTitles),version]);
 
 @override
 String toString() {
-  return 'AlbumModel(id: $id, name: $name, artist: $artist, artistId: $artistId, coverArt: $coverArt, songCount: $songCount, duration: $duration, playCount: $playCount, created: $created, starred: $starred, year: $year, genre: $genre, song: $song)';
+  return 'AlbumModel(id: $id, name: $name, artist: $artist, artistId: $artistId, coverArt: $coverArt, songCount: $songCount, duration: $duration, playCount: $playCount, created: $created, starred: $starred, year: $year, genre: $genre, song: $song, played: $played, userRating: $userRating, recordLabels: $recordLabels, musicBrainzId: $musicBrainzId, genres: $genres, artists: $artists, displayArtist: $displayArtist, releaseTypes: $releaseTypes, moods: $moods, sortName: $sortName, originalReleaseDate: $originalReleaseDate, releaseDate: $releaseDate, isCompilation: $isCompilation, explicitStatus: $explicitStatus, discTitles: $discTitles, version: $version)';
 }
 
 
@@ -283,11 +413,11 @@ abstract mixin class _$AlbumModelCopyWith<$Res> implements $AlbumModelCopyWith<$
   factory _$AlbumModelCopyWith(_AlbumModel value, $Res Function(_AlbumModel) _then) = __$AlbumModelCopyWithImpl;
 @override @useResult
 $Res call({
- String id,@JsonKey(readValue: _getAlbumName) String name, String? artist, String? artistId, String? coverArt, int? songCount,@DurationConvertor() Duration? duration, int? playCount,@DateTimeConvertor() DateTime? created,@DateTimeConvertor() DateTime? starred, int? year, String? genre, List<MediaModel> song
+ String id,@JsonKey(readValue: _getAlbumName) String name, String? artist, String? artistId, String? coverArt, int? songCount,@DurationConvertor() Duration? duration, int? playCount,@DateTimeConvertor() DateTime? created,@DateTimeConvertor() DateTime? starred, int? year, String? genre, List<MediaModel> song,@DateTimeConvertor() DateTime? played, int? userRating, List<RecordLabelModel> recordLabels, String? musicBrainzId, List<ItemGenreModel> genres, List<ArtistRefModel> artists, String? displayArtist, List<String> releaseTypes, List<String> moods, String? sortName, ItemDateModel? originalReleaseDate, ItemDateModel? releaseDate, bool? isCompilation, String? explicitStatus, List<DiscTitleModel> discTitles, String? version
 });
 
 
-
+@override $ItemDateModelCopyWith<$Res>? get originalReleaseDate;@override $ItemDateModelCopyWith<$Res>? get releaseDate;
 
 }
 /// @nodoc
@@ -300,7 +430,7 @@ class __$AlbumModelCopyWithImpl<$Res>
 
 /// Create a copy of AlbumModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? artist = freezed,Object? artistId = freezed,Object? coverArt = freezed,Object? songCount = freezed,Object? duration = freezed,Object? playCount = freezed,Object? created = freezed,Object? starred = freezed,Object? year = freezed,Object? genre = freezed,Object? song = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? artist = freezed,Object? artistId = freezed,Object? coverArt = freezed,Object? songCount = freezed,Object? duration = freezed,Object? playCount = freezed,Object? created = freezed,Object? starred = freezed,Object? year = freezed,Object? genre = freezed,Object? song = null,Object? played = freezed,Object? userRating = freezed,Object? recordLabels = null,Object? musicBrainzId = freezed,Object? genres = null,Object? artists = null,Object? displayArtist = freezed,Object? releaseTypes = null,Object? moods = null,Object? sortName = freezed,Object? originalReleaseDate = freezed,Object? releaseDate = freezed,Object? isCompilation = freezed,Object? explicitStatus = freezed,Object? discTitles = null,Object? version = freezed,}) {
   return _then(_AlbumModel(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
@@ -315,11 +445,51 @@ as DateTime?,starred: freezed == starred ? _self.starred : starred // ignore: ca
 as DateTime?,year: freezed == year ? _self.year : year // ignore: cast_nullable_to_non_nullable
 as int?,genre: freezed == genre ? _self.genre : genre // ignore: cast_nullable_to_non_nullable
 as String?,song: null == song ? _self._song : song // ignore: cast_nullable_to_non_nullable
-as List<MediaModel>,
+as List<MediaModel>,played: freezed == played ? _self.played : played // ignore: cast_nullable_to_non_nullable
+as DateTime?,userRating: freezed == userRating ? _self.userRating : userRating // ignore: cast_nullable_to_non_nullable
+as int?,recordLabels: null == recordLabels ? _self._recordLabels : recordLabels // ignore: cast_nullable_to_non_nullable
+as List<RecordLabelModel>,musicBrainzId: freezed == musicBrainzId ? _self.musicBrainzId : musicBrainzId // ignore: cast_nullable_to_non_nullable
+as String?,genres: null == genres ? _self._genres : genres // ignore: cast_nullable_to_non_nullable
+as List<ItemGenreModel>,artists: null == artists ? _self._artists : artists // ignore: cast_nullable_to_non_nullable
+as List<ArtistRefModel>,displayArtist: freezed == displayArtist ? _self.displayArtist : displayArtist // ignore: cast_nullable_to_non_nullable
+as String?,releaseTypes: null == releaseTypes ? _self._releaseTypes : releaseTypes // ignore: cast_nullable_to_non_nullable
+as List<String>,moods: null == moods ? _self._moods : moods // ignore: cast_nullable_to_non_nullable
+as List<String>,sortName: freezed == sortName ? _self.sortName : sortName // ignore: cast_nullable_to_non_nullable
+as String?,originalReleaseDate: freezed == originalReleaseDate ? _self.originalReleaseDate : originalReleaseDate // ignore: cast_nullable_to_non_nullable
+as ItemDateModel?,releaseDate: freezed == releaseDate ? _self.releaseDate : releaseDate // ignore: cast_nullable_to_non_nullable
+as ItemDateModel?,isCompilation: freezed == isCompilation ? _self.isCompilation : isCompilation // ignore: cast_nullable_to_non_nullable
+as bool?,explicitStatus: freezed == explicitStatus ? _self.explicitStatus : explicitStatus // ignore: cast_nullable_to_non_nullable
+as String?,discTitles: null == discTitles ? _self._discTitles : discTitles // ignore: cast_nullable_to_non_nullable
+as List<DiscTitleModel>,version: freezed == version ? _self.version : version // ignore: cast_nullable_to_non_nullable
+as String?,
   ));
 }
 
+/// Create a copy of AlbumModel
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ItemDateModelCopyWith<$Res>? get originalReleaseDate {
+    if (_self.originalReleaseDate == null) {
+    return null;
+  }
 
+  return $ItemDateModelCopyWith<$Res>(_self.originalReleaseDate!, (value) {
+    return _then(_self.copyWith(originalReleaseDate: value));
+  });
+}/// Create a copy of AlbumModel
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$ItemDateModelCopyWith<$Res>? get releaseDate {
+    if (_self.releaseDate == null) {
+    return null;
+  }
+
+  return $ItemDateModelCopyWith<$Res>(_self.releaseDate!, (value) {
+    return _then(_self.copyWith(releaseDate: value));
+  });
+}
 }
 
 // dart format on

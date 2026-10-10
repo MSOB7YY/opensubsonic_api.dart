@@ -15,6 +15,7 @@ export 'src/models/components/error/error.model.dart';
 export 'src/models/components/genre/genre.model.dart';
 export 'src/models/components/genres/genres.model.dart';
 export 'src/models/components/index/index.model.dart';
+export 'src/models/components/item_details/item_details.model.dart';
 export 'src/models/components/license/license.model.dart';
 export 'src/models/components/lyrics/lyrics.model.dart';
 export 'src/models/components/media/media.model.dart';

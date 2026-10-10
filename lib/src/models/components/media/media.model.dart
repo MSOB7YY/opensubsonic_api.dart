@@ -4,6 +4,7 @@ import '../../../convertors/date_time.convertor.dart';
 import '../../../convertors/duration.convertor.dart';
 import '../../../extensions/types.extension.dart';
 import '../enums/media_type.enum.dart';
+import '../item_details/item_details.model.dart';
 
 part 'media.model.freezed.dart';
 part 'media.model.g.dart';
@@ -68,6 +69,66 @@ abstract class MediaModel with _$MediaModel {
 
     /// Added in 1.13.0
     int? originalHeight,
+
+    /// OpenSubsonic
+    @DateTimeConvertor() DateTime? played,
+
+    /// OpenSubsonic
+    int? bpm,
+
+    /// OpenSubsonic
+    String? comment,
+
+    /// OpenSubsonic
+    String? sortName,
+
+    /// OpenSubsonic
+    String? mediaType,
+
+    /// OpenSubsonic, track/recording MBID
+    String? musicBrainzId,
+
+    /// OpenSubsonic
+    @Default([]) List<String> isrc,
+
+    /// OpenSubsonic
+    @Default([]) List<ItemGenreModel> genres,
+
+    /// OpenSubsonic
+    @Default([]) List<ArtistRefModel> artists,
+
+    /// OpenSubsonic
+    String? displayArtist,
+
+    /// OpenSubsonic
+    @Default([]) List<ArtistRefModel> albumArtists,
+
+    /// OpenSubsonic
+    String? displayAlbumArtist,
+
+    /// OpenSubsonic
+    @Default([]) List<ContributorModel> contributors,
+
+    /// OpenSubsonic
+    String? displayComposer,
+
+    /// OpenSubsonic
+    @Default([]) List<String> moods,
+
+    /// OpenSubsonic
+    ReplayGainModel? replayGain,
+
+    /// OpenSubsonic
+    String? explicitStatus,
+
+    /// OpenSubsonic
+    int? bitDepth,
+
+    /// OpenSubsonic
+    int? samplingRate,
+
+    /// OpenSubsonic
+    int? channelCount,
   }) = _MediaModel;
 
   factory MediaModel.fromJson(Map<String, dynamic> json) =>
