@@ -6,7 +6,7 @@ part 'lyrics.model.g.dart';
 @freezed
 abstract class StructuredLyricsModel with _$StructuredLyricsModel {
   const factory StructuredLyricsModel({
-    @JsonKey(name: 'structuredLyrics') required List<LyricsModel> lyrics,
+    @JsonKey(name: 'structuredLyrics') @Default([]) List<LyricsModel> lyrics,
   }) = _StructuredLyricsModel;
 
   factory StructuredLyricsModel.fromJson(Map<String, dynamic> json) =>
@@ -16,10 +16,17 @@ abstract class StructuredLyricsModel with _$StructuredLyricsModel {
 @freezed
 abstract class LyricsModel with _$LyricsModel {
   const factory LyricsModel({
-    required String displayArtist,
-    required String displayTitle,
-    required String lang,
-    required List<LyricsLineModel> line,
+    String? displayArtist,
+    String? displayTitle,
+
+    /// `main`, `translation` or `pronunciation`, null means `main`.
+    String? kind,
+    @Default('und') String lang,
+    @Default(false) bool synced,
+
+    /// milliseconds, positive shows the lines sooner.
+    int? offset,
+    @Default([]) List<LyricsLineModel> line,
   }) = _LyricsModel;
 
   factory LyricsModel.fromJson(Map<String, dynamic> json) =>
@@ -29,8 +36,9 @@ abstract class LyricsModel with _$LyricsModel {
 @freezed
 abstract class LyricsLineModel with _$LyricsLineModel {
   const factory LyricsLineModel({
-    required int start,
-    required String value,
+    /// milliseconds, null when the lyrics are not synced.
+    int? start,
+    @Default('') String value,
   }) = _LyricsLineModel;
 
   factory LyricsLineModel.fromJson(Map<String, dynamic> json) =>

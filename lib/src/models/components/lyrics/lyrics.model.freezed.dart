@@ -209,7 +209,7 @@ return $default(_that.lyrics);case _:
 @JsonSerializable()
 
 class _StructuredLyricsModel implements StructuredLyricsModel {
-  const _StructuredLyricsModel({@JsonKey(name: 'structuredLyrics') required final  List<LyricsModel> lyrics}): _lyrics = lyrics;
+  const _StructuredLyricsModel({@JsonKey(name: 'structuredLyrics') final  List<LyricsModel> lyrics = const []}): _lyrics = lyrics;
   factory _StructuredLyricsModel.fromJson(Map<String, dynamic> json) => _$StructuredLyricsModelFromJson(json);
 
  final  List<LyricsModel> _lyrics;
@@ -284,7 +284,9 @@ as List<LyricsModel>,
 /// @nodoc
 mixin _$LyricsModel {
 
- String get displayArtist; String get displayTitle; String get lang; List<LyricsLineModel> get line;
+ String? get displayArtist; String? get displayTitle;/// `main`, `translation` or `pronunciation`, null means `main`.
+ String? get kind; String get lang; bool get synced;/// milliseconds, positive shows the lines sooner.
+ int? get offset; List<LyricsLineModel> get line;
 /// Create a copy of LyricsModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -297,16 +299,16 @@ $LyricsModelCopyWith<LyricsModel> get copyWith => _$LyricsModelCopyWithImpl<Lyri
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LyricsModel&&(identical(other.displayArtist, displayArtist) || other.displayArtist == displayArtist)&&(identical(other.displayTitle, displayTitle) || other.displayTitle == displayTitle)&&(identical(other.lang, lang) || other.lang == lang)&&const DeepCollectionEquality().equals(other.line, line));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LyricsModel&&(identical(other.displayArtist, displayArtist) || other.displayArtist == displayArtist)&&(identical(other.displayTitle, displayTitle) || other.displayTitle == displayTitle)&&(identical(other.kind, kind) || other.kind == kind)&&(identical(other.lang, lang) || other.lang == lang)&&(identical(other.synced, synced) || other.synced == synced)&&(identical(other.offset, offset) || other.offset == offset)&&const DeepCollectionEquality().equals(other.line, line));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,displayArtist,displayTitle,lang,const DeepCollectionEquality().hash(line));
+int get hashCode => Object.hash(runtimeType,displayArtist,displayTitle,kind,lang,synced,offset,const DeepCollectionEquality().hash(line));
 
 @override
 String toString() {
-  return 'LyricsModel(displayArtist: $displayArtist, displayTitle: $displayTitle, lang: $lang, line: $line)';
+  return 'LyricsModel(displayArtist: $displayArtist, displayTitle: $displayTitle, kind: $kind, lang: $lang, synced: $synced, offset: $offset, line: $line)';
 }
 
 
@@ -317,7 +319,7 @@ abstract mixin class $LyricsModelCopyWith<$Res>  {
   factory $LyricsModelCopyWith(LyricsModel value, $Res Function(LyricsModel) _then) = _$LyricsModelCopyWithImpl;
 @useResult
 $Res call({
- String displayArtist, String displayTitle, String lang, List<LyricsLineModel> line
+ String? displayArtist, String? displayTitle, String? kind, String lang, bool synced, int? offset, List<LyricsLineModel> line
 });
 
 
@@ -334,12 +336,15 @@ class _$LyricsModelCopyWithImpl<$Res>
 
 /// Create a copy of LyricsModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? displayArtist = null,Object? displayTitle = null,Object? lang = null,Object? line = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? displayArtist = freezed,Object? displayTitle = freezed,Object? kind = freezed,Object? lang = null,Object? synced = null,Object? offset = freezed,Object? line = null,}) {
   return _then(_self.copyWith(
-displayArtist: null == displayArtist ? _self.displayArtist : displayArtist // ignore: cast_nullable_to_non_nullable
-as String,displayTitle: null == displayTitle ? _self.displayTitle : displayTitle // ignore: cast_nullable_to_non_nullable
-as String,lang: null == lang ? _self.lang : lang // ignore: cast_nullable_to_non_nullable
-as String,line: null == line ? _self.line : line // ignore: cast_nullable_to_non_nullable
+displayArtist: freezed == displayArtist ? _self.displayArtist : displayArtist // ignore: cast_nullable_to_non_nullable
+as String?,displayTitle: freezed == displayTitle ? _self.displayTitle : displayTitle // ignore: cast_nullable_to_non_nullable
+as String?,kind: freezed == kind ? _self.kind : kind // ignore: cast_nullable_to_non_nullable
+as String?,lang: null == lang ? _self.lang : lang // ignore: cast_nullable_to_non_nullable
+as String,synced: null == synced ? _self.synced : synced // ignore: cast_nullable_to_non_nullable
+as bool,offset: freezed == offset ? _self.offset : offset // ignore: cast_nullable_to_non_nullable
+as int?,line: null == line ? _self.line : line // ignore: cast_nullable_to_non_nullable
 as List<LyricsLineModel>,
   ));
 }
@@ -425,10 +430,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String displayArtist,  String displayTitle,  String lang,  List<LyricsLineModel> line)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String? displayArtist,  String? displayTitle,  String? kind,  String lang,  bool synced,  int? offset,  List<LyricsLineModel> line)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _LyricsModel() when $default != null:
-return $default(_that.displayArtist,_that.displayTitle,_that.lang,_that.line);case _:
+return $default(_that.displayArtist,_that.displayTitle,_that.kind,_that.lang,_that.synced,_that.offset,_that.line);case _:
   return orElse();
 
 }
@@ -446,10 +451,10 @@ return $default(_that.displayArtist,_that.displayTitle,_that.lang,_that.line);ca
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String displayArtist,  String displayTitle,  String lang,  List<LyricsLineModel> line)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String? displayArtist,  String? displayTitle,  String? kind,  String lang,  bool synced,  int? offset,  List<LyricsLineModel> line)  $default,) {final _that = this;
 switch (_that) {
 case _LyricsModel():
-return $default(_that.displayArtist,_that.displayTitle,_that.lang,_that.line);case _:
+return $default(_that.displayArtist,_that.displayTitle,_that.kind,_that.lang,_that.synced,_that.offset,_that.line);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -466,10 +471,10 @@ return $default(_that.displayArtist,_that.displayTitle,_that.lang,_that.line);ca
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String displayArtist,  String displayTitle,  String lang,  List<LyricsLineModel> line)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String? displayArtist,  String? displayTitle,  String? kind,  String lang,  bool synced,  int? offset,  List<LyricsLineModel> line)?  $default,) {final _that = this;
 switch (_that) {
 case _LyricsModel() when $default != null:
-return $default(_that.displayArtist,_that.displayTitle,_that.lang,_that.line);case _:
+return $default(_that.displayArtist,_that.displayTitle,_that.kind,_that.lang,_that.synced,_that.offset,_that.line);case _:
   return null;
 
 }
@@ -481,14 +486,19 @@ return $default(_that.displayArtist,_that.displayTitle,_that.lang,_that.line);ca
 @JsonSerializable()
 
 class _LyricsModel implements LyricsModel {
-  const _LyricsModel({required this.displayArtist, required this.displayTitle, required this.lang, required final  List<LyricsLineModel> line}): _line = line;
+  const _LyricsModel({this.displayArtist, this.displayTitle, this.kind, this.lang = 'und', this.synced = false, this.offset, final  List<LyricsLineModel> line = const []}): _line = line;
   factory _LyricsModel.fromJson(Map<String, dynamic> json) => _$LyricsModelFromJson(json);
 
-@override final  String displayArtist;
-@override final  String displayTitle;
-@override final  String lang;
+@override final  String? displayArtist;
+@override final  String? displayTitle;
+/// `main`, `translation` or `pronunciation`, null means `main`.
+@override final  String? kind;
+@override@JsonKey() final  String lang;
+@override@JsonKey() final  bool synced;
+/// milliseconds, positive shows the lines sooner.
+@override final  int? offset;
  final  List<LyricsLineModel> _line;
-@override List<LyricsLineModel> get line {
+@override@JsonKey() List<LyricsLineModel> get line {
   if (_line is EqualUnmodifiableListView) return _line;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_line);
@@ -508,16 +518,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LyricsModel&&(identical(other.displayArtist, displayArtist) || other.displayArtist == displayArtist)&&(identical(other.displayTitle, displayTitle) || other.displayTitle == displayTitle)&&(identical(other.lang, lang) || other.lang == lang)&&const DeepCollectionEquality().equals(other._line, _line));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LyricsModel&&(identical(other.displayArtist, displayArtist) || other.displayArtist == displayArtist)&&(identical(other.displayTitle, displayTitle) || other.displayTitle == displayTitle)&&(identical(other.kind, kind) || other.kind == kind)&&(identical(other.lang, lang) || other.lang == lang)&&(identical(other.synced, synced) || other.synced == synced)&&(identical(other.offset, offset) || other.offset == offset)&&const DeepCollectionEquality().equals(other._line, _line));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,displayArtist,displayTitle,lang,const DeepCollectionEquality().hash(_line));
+int get hashCode => Object.hash(runtimeType,displayArtist,displayTitle,kind,lang,synced,offset,const DeepCollectionEquality().hash(_line));
 
 @override
 String toString() {
-  return 'LyricsModel(displayArtist: $displayArtist, displayTitle: $displayTitle, lang: $lang, line: $line)';
+  return 'LyricsModel(displayArtist: $displayArtist, displayTitle: $displayTitle, kind: $kind, lang: $lang, synced: $synced, offset: $offset, line: $line)';
 }
 
 
@@ -528,7 +538,7 @@ abstract mixin class _$LyricsModelCopyWith<$Res> implements $LyricsModelCopyWith
   factory _$LyricsModelCopyWith(_LyricsModel value, $Res Function(_LyricsModel) _then) = __$LyricsModelCopyWithImpl;
 @override @useResult
 $Res call({
- String displayArtist, String displayTitle, String lang, List<LyricsLineModel> line
+ String? displayArtist, String? displayTitle, String? kind, String lang, bool synced, int? offset, List<LyricsLineModel> line
 });
 
 
@@ -545,12 +555,15 @@ class __$LyricsModelCopyWithImpl<$Res>
 
 /// Create a copy of LyricsModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? displayArtist = null,Object? displayTitle = null,Object? lang = null,Object? line = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? displayArtist = freezed,Object? displayTitle = freezed,Object? kind = freezed,Object? lang = null,Object? synced = null,Object? offset = freezed,Object? line = null,}) {
   return _then(_LyricsModel(
-displayArtist: null == displayArtist ? _self.displayArtist : displayArtist // ignore: cast_nullable_to_non_nullable
-as String,displayTitle: null == displayTitle ? _self.displayTitle : displayTitle // ignore: cast_nullable_to_non_nullable
-as String,lang: null == lang ? _self.lang : lang // ignore: cast_nullable_to_non_nullable
-as String,line: null == line ? _self._line : line // ignore: cast_nullable_to_non_nullable
+displayArtist: freezed == displayArtist ? _self.displayArtist : displayArtist // ignore: cast_nullable_to_non_nullable
+as String?,displayTitle: freezed == displayTitle ? _self.displayTitle : displayTitle // ignore: cast_nullable_to_non_nullable
+as String?,kind: freezed == kind ? _self.kind : kind // ignore: cast_nullable_to_non_nullable
+as String?,lang: null == lang ? _self.lang : lang // ignore: cast_nullable_to_non_nullable
+as String,synced: null == synced ? _self.synced : synced // ignore: cast_nullable_to_non_nullable
+as bool,offset: freezed == offset ? _self.offset : offset // ignore: cast_nullable_to_non_nullable
+as int?,line: null == line ? _self._line : line // ignore: cast_nullable_to_non_nullable
 as List<LyricsLineModel>,
   ));
 }
@@ -562,7 +575,8 @@ as List<LyricsLineModel>,
 /// @nodoc
 mixin _$LyricsLineModel {
 
- int get start; String get value;
+/// milliseconds, null when the lyrics are not synced.
+ int? get start; String get value;
 /// Create a copy of LyricsLineModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -595,7 +609,7 @@ abstract mixin class $LyricsLineModelCopyWith<$Res>  {
   factory $LyricsLineModelCopyWith(LyricsLineModel value, $Res Function(LyricsLineModel) _then) = _$LyricsLineModelCopyWithImpl;
 @useResult
 $Res call({
- int start, String value
+ int? start, String value
 });
 
 
@@ -612,10 +626,10 @@ class _$LyricsLineModelCopyWithImpl<$Res>
 
 /// Create a copy of LyricsLineModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? start = null,Object? value = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? start = freezed,Object? value = null,}) {
   return _then(_self.copyWith(
-start: null == start ? _self.start : start // ignore: cast_nullable_to_non_nullable
-as int,value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+start: freezed == start ? _self.start : start // ignore: cast_nullable_to_non_nullable
+as int?,value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
@@ -701,7 +715,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int start,  String value)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int? start,  String value)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _LyricsLineModel() when $default != null:
 return $default(_that.start,_that.value);case _:
@@ -722,7 +736,7 @@ return $default(_that.start,_that.value);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int start,  String value)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int? start,  String value)  $default,) {final _that = this;
 switch (_that) {
 case _LyricsLineModel():
 return $default(_that.start,_that.value);case _:
@@ -742,7 +756,7 @@ return $default(_that.start,_that.value);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int start,  String value)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int? start,  String value)?  $default,) {final _that = this;
 switch (_that) {
 case _LyricsLineModel() when $default != null:
 return $default(_that.start,_that.value);case _:
@@ -757,11 +771,12 @@ return $default(_that.start,_that.value);case _:
 @JsonSerializable()
 
 class _LyricsLineModel implements LyricsLineModel {
-  const _LyricsLineModel({required this.start, required this.value});
+  const _LyricsLineModel({this.start, this.value = ''});
   factory _LyricsLineModel.fromJson(Map<String, dynamic> json) => _$LyricsLineModelFromJson(json);
 
-@override final  int start;
-@override final  String value;
+/// milliseconds, null when the lyrics are not synced.
+@override final  int? start;
+@override@JsonKey() final  String value;
 
 /// Create a copy of LyricsLineModel
 /// with the given fields replaced by the non-null parameter values.
@@ -796,7 +811,7 @@ abstract mixin class _$LyricsLineModelCopyWith<$Res> implements $LyricsLineModel
   factory _$LyricsLineModelCopyWith(_LyricsLineModel value, $Res Function(_LyricsLineModel) _then) = __$LyricsLineModelCopyWithImpl;
 @override @useResult
 $Res call({
- int start, String value
+ int? start, String value
 });
 
 
@@ -813,10 +828,10 @@ class __$LyricsLineModelCopyWithImpl<$Res>
 
 /// Create a copy of LyricsLineModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? start = null,Object? value = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? start = freezed,Object? value = null,}) {
   return _then(_LyricsLineModel(
-start: null == start ? _self.start : start // ignore: cast_nullable_to_non_nullable
-as int,value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+start: freezed == start ? _self.start : start // ignore: cast_nullable_to_non_nullable
+as int?,value: null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
